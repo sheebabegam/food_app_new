@@ -2,14 +2,15 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
-
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import { useNavigate } from "react-router-dom";
 import "../Modal/modal.css";
 import Modals from "../Modal/Modals.js";
 import ReactTooltip from "react-tooltip";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import { collection, doc, addDoc, getDocs, getDoc } from "firebase/firestore";
 import "../style.css";
+import { db } from "../../firebase";
 
 const useStyles = makeStyles({
   backImage: {
@@ -57,8 +58,42 @@ const useStyles = makeStyles({
   },
 });
 
-const Cart = () => {
+const Cart = (props) => {
+  console.log("DB is", props);
   const [show, setShow] = useState(false);
+  const [orderitem, setOrderitem] = useState([]);
+
+  const [todos, setTodos] = useState([]);
+
+  const foodCollectionRef = collection(db, "order-data");
+
+  const saveChange = async (e) => {
+    // e.preventDefault();
+
+    await addDoc(collection(db, "order-data"), {
+      orderitems: orderitem,
+    })
+      .then(function (res) {
+        // alert("Items added");
+      })
+      .catch(function (err) {
+        // alert("Details cannot be added");
+      });
+
+    window.location.reload();
+  };
+
+  // const getOrderItem = () => {
+  //   const getFromFirebase = getDocs(collection("order-data"));
+  //   getFromFirebase.onSnapshot((querySnapShot) => {
+  //     const allorders = [];
+  //     querySnapShot.forEach((doc) => {
+  //       saveFirebaseTodos.push(doc.data());
+  //     });
+  //     setTodos(saveFirebaseTodos);
+  //   });
+  // };
+
   const classes = useStyles();
 
   const cart = useSelector((state) => state);
@@ -128,7 +163,7 @@ const Cart = () => {
     navigator.clipboard.writeText(copytext);
   };
 
-  const submitAlert = (totalamount) => {
+  const submitAlert = async (totalamount) => {
     var menu_details = {
       order_id: order_id,
       date: date,
@@ -167,11 +202,22 @@ const Cart = () => {
       },
     };
 
-    var order_details = localStorage.setItem(
-      "order_details",
-      JSON.stringify(menu_details)
-    );
+    // setState(prevState => { // Object.assign would also work
+    //   return {...prevState, ...updatedValues};
+    // });
+
+    orderitem.push(menu_details);
+
+    // var order_details = localStorage.setItem(
+    //   "order_details",
+    //   JSON.stringify(menu_details)
+    // );
+
+    await saveChange();
   };
+  console.log(orderitem);
+
+  //{get firestore data}
 
   // Modal
 
@@ -257,7 +303,7 @@ const Cart = () => {
       <div className={classes.container}>
         <div className="contain">
           {cart.map((product) => {
-            console.log("CART is :", product);
+            // console.log("CART is :", product);
             return (
               <div className="my_div">
                 <div className="division">
@@ -451,8 +497,10 @@ const Cart = () => {
                   <Button
                     variant="contained"
                     aria-label="outlined primary button group"
-                    onChange={submitAlert(total)}
-                    onClick={handleShow}
+                    onClick={() => {
+                      handleShow();
+                      submitAlert(total);
+                    }}
                     style={{
                       backgroundColor: "#6439ff",
                       borderRadius: "10px",
