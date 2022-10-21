@@ -21,8 +21,6 @@ import CardMedia from "@material-ui/core/CardMedia";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import restaurant from "../Data/restaurant.json";
 import { Link } from "react-router-dom";
-import res_b from "../../images/res_b.jpg";
-import bg from "../../images/bg.jpg";
 
 const useStyles = makeStyles((theme) => ({
   container: {

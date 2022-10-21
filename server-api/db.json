@@ -127,6 +127,92 @@
         },
         "restaurant_details": {}
       }
+    },
+    {
+      "id": "74bb25a5-9ca2-48d2-ba59-a22a0641d528",
+      "orders": {
+        "order_id": "9865342671@21/10/2022@13:19:35",
+        "date": "21/10/2022",
+        "time": "13:19:35",
+        "menus": [
+          {
+            "menu_id": "344",
+            "menu_name": "Shawarma",
+            "menu_image": "https://st2.depositphotos.com/3765753/6393/i/950/depositphotos_63934853-stock-photo-turkish-shawarma-durum-traditional-sish.jpg",
+            "menu_price": 110,
+            "menu_type": "nv",
+            "menu_available_qty": "1000",
+            "quantity": 1,
+            "gst": 7.7,
+            "description": "Shawarma is a Middle Eastern dish of Turkish origin. Consisting of meat cut into thin slices, stacked in a cone-like shape, and roasted on a slowly-turning vertical rotisserie or spit. Traditionally made with lamb or mutton, it may also be made with chicken, turkey, beef, or veal. "
+          },
+          {
+            "menu_id": "354",
+            "menu_name": "Shawarma",
+            "menu_image": "https://st2.depositphotos.com/3765753/6393/i/950/depositphotos_63934853-stock-photo-turkish-shawarma-durum-traditional-sish.jpg",
+            "menu_price": 110,
+            "menu_type": "nv",
+            "menu_available_qty": "1000",
+            "quantity": 2,
+            "gst": 7.7,
+            "description": "Shawarma is a Middle Eastern dish of Turkish origin. Consisting of meat cut into thin slices, stacked in a cone-like shape, and roasted on a slowly-turning vertical rotisserie or spit. Traditionally made with lamb or mutton, it may also be made with chicken, turkey, beef, or veal. "
+          },
+          {
+            "menu_id": "242",
+            "menu_name": "Shawarma",
+            "menu_image": "https://st2.depositphotos.com/3765753/6393/i/950/depositphotos_63934853-stock-photo-turkish-shawarma-durum-traditional-sish.jpg",
+            "menu_price": 110,
+            "menu_type": "nv",
+            "menu_available_qty": "1000",
+            "quantity": 1,
+            "gst": 7.7,
+            "description": "Shawarma is a Middle Eastern dish of Turkish origin. Consisting of meat cut into thin slices, stacked in a cone-like shape, and roasted on a slowly-turning vertical rotisserie or spit. Traditionally made with lamb or mutton, it may also be made with chicken, turkey, beef, or veal. "
+          },
+          {
+            "menu_id": "888",
+            "menu_name": "Parotta",
+            "menu_image": "https://wallpapercave.com/wp/wp8365304.jpg",
+            "menu_price": 20,
+            "menu_type": "nv",
+            "menu_available_qty": "1000",
+            "quantity": 1,
+            "gst": 1.4,
+            "description": "Porotta is a Subcontinental layered flatbread made from Maida or Atta, alternatively known as flaky ribbon pancake."
+          },
+          {
+            "menu_id": "999",
+            "menu_name": "Parotta",
+            "menu_image": "https://wallpapercave.com/wp/wp8365304.jpg",
+            "menu_price": 20,
+            "menu_type": "nv",
+            "menu_available_qty": "1000",
+            "quantity": 4,
+            "gst": 1.4,
+            "description": "Porotta is a Subcontinental layered flatbread made from Maida or Atta, alternatively known as flaky ribbon pancake."
+          }
+        ],
+        "totalPrice": "540.00",
+        "delivery_fee": 20,
+        "tax": [
+          {
+            "taxname": "gst",
+            "taxpercentage": "5",
+            "taxamount": "27.00"
+          },
+          {
+            "taxname": "cgst",
+            "taxpercentage": "7",
+            "taxamount": "37.80"
+          }
+        ],
+        "clear_amount": "624.80",
+        "customer_details": {
+          "customer_name": "Sheeba",
+          "customer_phone": "9865342671",
+          "customer_email": "sheeba@gmail.com"
+        },
+        "restaurant_details": {}
+      }
     }
   ]
 }

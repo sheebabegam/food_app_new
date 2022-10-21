@@ -10,7 +10,7 @@ import Paper from "@material-ui/core/Paper";
 import { useForm } from "react-hook-form";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import LockOpenIcon from "@mui/icons-material/LockOpen";
-import final_log from "../../images/final_log.jpg";
+// import final_log from "../../images/final_log.jpg";
 import { Link } from "react-router-dom";
 import ReusableInput from "./ReusableInput";
 import "../style.css";
@@ -187,7 +187,7 @@ const useStyles = makeStyles((theme) => ({
   paperContainer: {
     height: 844,
     justifyContent: "flex-start",
-    backgroundImage: `url(${final_log})`,
+    // backgroundImage: `url(${final_log})`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     alignContent: "stretch",

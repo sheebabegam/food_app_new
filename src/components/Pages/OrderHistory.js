@@ -26,7 +26,7 @@ function Order_History() {
 
   const [orderedData, setOrderedData] = useState([]);
   useEffect(() => {
-    axios.get(`http://localhost:3011/orderData`).then((response) => {
+    axios.get(`http://localhost:3012/orderData`).then((response) => {
       setOrderedData(response.data);
     });
   }, []);

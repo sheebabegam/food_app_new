@@ -3,7 +3,6 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Cart from "./components/Pages/Cart";
 import Navbar from "./components/Navbar";
-import Register from "./components/User_Components/Register";
 import LoginNew from "./components/User_Components/LoginNew";
 import OrderHistory from "./components/Pages/OrderHistory";
 import ShowOrderDetails from "./components/Pages/ShowOrderDetails";

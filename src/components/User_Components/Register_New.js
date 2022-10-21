@@ -9,7 +9,6 @@ import { useNavigate, Link } from "react-router-dom";
 import Paper from "@material-ui/core/Paper";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import back from "../../images/back.jpg";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import Fetch_Data from "../../Fetch_Data";
 import "../style.css";
@@ -25,9 +24,9 @@ import { toast } from "react-toastify";
 import user_icon from "../../images/user_icon.png";
 import MonochromePhotosIcon from "@mui/icons-material/MonochromePhotos";
 import side_img from "../../images/side_img.png";
-import special1 from "../../images/special1.jpg";
-import special2 from "../../images/special2.jpg";
-import special3 from "../../images/special3.jpg";
+import special1 from "../../images/special1.png";
+import special2 from "../../images/special2.png";
+import special3 from "../../images/special3.png";
 
 function Register_New(props) {
   const classes = useStyles();

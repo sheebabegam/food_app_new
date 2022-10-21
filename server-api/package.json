@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "json-server -p 3011 -w db.json"
+    "start": "json-server -p 3012 -w db.json"
   },
   "keywords": [],
   "author": "",
