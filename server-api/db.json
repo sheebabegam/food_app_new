@@ -1,0 +1,132 @@
+{
+  "orderData": [
+    {
+      "id": "4c430b46-c1b6-4767-b12e-a97f3af3cbb8",
+      "orders": {
+        "order_id": "9865342671@21/10/2022@10:50:11",
+        "date": "21/10/2022",
+        "time": "10:50:11",
+        "menus": [
+          {
+            "menu_id": "344",
+            "menu_name": "Shawarma",
+            "menu_image": "https://st2.depositphotos.com/3765753/6393/i/950/depositphotos_63934853-stock-photo-turkish-shawarma-durum-traditional-sish.jpg",
+            "menu_price": 110,
+            "menu_type": "nv",
+            "menu_available_qty": "1000",
+            "quantity": 4,
+            "gst": 7.7,
+            "description": "Shawarma is a Middle Eastern dish of Turkish origin. Consisting of meat cut into thin slices, stacked in a cone-like shape, and roasted on a slowly-turning vertical rotisserie or spit. Traditionally made with lamb or mutton, it may also be made with chicken, turkey, beef, or veal. "
+          },
+          {
+            "menu_id": "240",
+            "menu_name": "Shawarma",
+            "menu_image": "https://st2.depositphotos.com/3765753/6393/i/950/depositphotos_63934853-stock-photo-turkish-shawarma-durum-traditional-sish.jpg",
+            "menu_price": 110,
+            "menu_type": "nv",
+            "menu_available_qty": "1000",
+            "quantity": 1,
+            "gst": 7.7,
+            "description": "Shawarma is a Middle Eastern dish of Turkish origin. Consisting of meat cut into thin slices, stacked in a cone-like shape, and roasted on a slowly-turning vertical rotisserie or spit. Traditionally made with lamb or mutton, it may also be made with chicken, turkey, beef, or veal. "
+          },
+          {
+            "menu_id": "888",
+            "menu_name": "Parotta",
+            "menu_image": "https://wallpapercave.com/wp/wp8365304.jpg",
+            "menu_price": 20,
+            "menu_type": "nv",
+            "menu_available_qty": "1000",
+            "quantity": 2,
+            "gst": 1.4,
+            "description": "Porotta is a Subcontinental layered flatbread made from Maida or Atta, alternatively known as flaky ribbon pancake."
+          }
+        ],
+        "totalPrice": "590.00",
+        "delivery_fee": 20,
+        "tax": [
+          {
+            "taxname": "gst",
+            "taxpercentage": "5",
+            "taxamount": "29.50"
+          },
+          {
+            "taxname": "cgst",
+            "taxpercentage": "7",
+            "taxamount": "41.30"
+          }
+        ],
+        "clear_amount": "680.80",
+        "customer_details": {
+          "customer_name": "Sheeba",
+          "customer_phone": "9865342671",
+          "customer_email": "sheeba@gmail.com"
+        },
+        "restaurant_details": {}
+      }
+    },
+    {
+      "id": "5f933a86-9697-4232-a532-a850d2e9093d",
+      "orders": {
+        "order_id": "9865342671@21/10/2022@10:50:45",
+        "date": "21/10/2022",
+        "time": "10:50:45",
+        "menus": [
+          {
+            "menu_id": "245",
+            "menu_name": "Roti",
+            "menu_image": "https://zaykarecipes.com/wp-content/uploads/2017/02/soft-roti-recipe.jpg",
+            "menu_price": 40,
+            "menu_type": "veg",
+            "menu_available_qty": "1000",
+            "quantity": 1,
+            "gst": 2.8,
+            "description": "Roti is made of whole wheat flour and nothing else really and is eaten in India with dal and curries."
+          },
+          {
+            "menu_id": "356",
+            "menu_name": "Idly",
+            "menu_image": "https://geekrobocook.com/wp-content/uploads/2021/05/Keto-Idly.jpg",
+            "menu_price": 15,
+            "menu_type": "veg",
+            "menu_available_qty": "1000",
+            "quantity": 1,
+            "gst": 1.05,
+            "description": "Idly is a type of savoury rice cake, originating from the Indian subcontinent, popular as breakfast foods in Southern India. "
+          },
+          {
+            "menu_id": "561",
+            "menu_name": "Idly",
+            "menu_image": "https://geekrobocook.com/wp-content/uploads/2021/05/Keto-Idly.jpg",
+            "menu_price": 15,
+            "menu_type": "veg",
+            "menu_available_qty": "1000",
+            "quantity": 1,
+            "gst": 1.05,
+            "description": "Idly is a type of savoury rice cake, originating from the Indian subcontinent, popular as breakfast foods in Southern India. "
+          }
+        ],
+        "totalPrice": "70.00",
+        "delivery_fee": 20,
+        "tax": [
+          {
+            "taxname": "gst",
+            "taxpercentage": "5",
+            "taxamount": "3.50"
+          },
+          {
+            "taxname": "cgst",
+            "taxpercentage": "7",
+            "taxamount": "4.90"
+          }
+        ],
+        "clear_amount": "98.40",
+        "customer_details": {
+          "customer_name": "Sheeba",
+          "customer_phone": "9865342671",
+          "customer_email": "sheeba@gmail.com"
+        },
+        "restaurant_details": {}
+      }
+    }
+  ]
+}

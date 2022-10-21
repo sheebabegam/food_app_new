@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "name": "Paneer Tikka",
+        "description": "Delicious tandoori snack",
+        "price": 150,
+        "gst": 21.50,
+        "image": "https://www.pngitem.com/pimgs/m/215-2157352_paneer-tikka-images-png-transparent-png.png"        
+    },
+    {
+        "id": 2,
+        "name": "Hakka Noodles",
+        "description": "Indian-Chinese style noodles",
+        "price": 200,
+        "gst": 28.50,
+        "image": "https://img.freepik.com/free-photo/schezwan-noodles-szechwan-vegetable-hakka-noodles-chow-mein-is-popular-indo-chinese-recipes-served-bowl-plate-with-wooden-chopsticks_466689-74636.jpg"        
+    },
+    {
+        "id": 3,
+        "name": "Veg Biryani",
+        "description": "An aromatic rice dish made with basmati rice, spices & mixed veggies",
+        "price": 250,
+        "gst": 36,
+        "image": "https://image.shutterstock.com/image-photo/veg-biryani-260nw-142854022.jpg"        
+    },
+    {
+        "id": 4,
+        "name": "Palak Paneer",
+        "description": "A classic curried dish from North Indian cuisine",
+        "price": 300,
+        "gst": 43,
+        "image": "https://static.punjabkesari.in/multimedia/2021_2image_10_17_514936913palakpaneer.jpg"        
+    }
+]

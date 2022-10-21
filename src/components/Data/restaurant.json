@@ -1,0 +1,261 @@
+[
+    {
+        "res_id": "1",
+        "route": "/dellme",
+        "res_name": "Dellme restaurant",
+        "res_image": "https://c1.wallpaperflare.com/preview/411/769/212/architecture-bar-buildings-city.jpg",
+        "res_img": "https://www.tastingtable.com/img/gallery/20-italian-dishes-you-need-to-try-at-least-once/l-intro-1643403830.jpg",
+        "res_address": {
+            "address": "Leominster, MA, USA",
+            "coordinates1": {
+                "lat": 42.525482,
+                "long": -71.764183
+            },
+            "coordinates2": {
+                "lat": 42.535482,
+                "long": -71.765273
+            }
+
+        },
+        "res_phone": "+1-212-468-8898",
+        "res_web": "https://www.reservationsdabble@hilton.com",
+        "res_website": "reservationsdabble@hilton.com",
+        "res_type": "veg",
+        "res_data": [
+            {
+                "res_title": "The",
+                "res_name": "Dellme restaurant"
+            }
+        ],
+        "menus": [
+            {
+                "menu_id": "245",
+                "menu_name": "Roti",
+                "menu_image": "https://zaykarecipes.com/wp-content/uploads/2017/02/soft-roti-recipe.jpg",
+                "menu_price": 40,
+                "menu_type": "veg",
+                "menu_available_qty": "1000",
+                "quantity": 1,
+                "gst": 2.80,
+                "description": "Roti is made of whole wheat flour and nothing else really and is eaten in India with dal and curries."
+            },
+            {
+                "menu_id": "356",
+                "menu_name": "Idly",
+                "menu_image": "https://geekrobocook.com/wp-content/uploads/2021/05/Keto-Idly.jpg",
+                "menu_price": 15,
+                "menu_type": "veg",
+                "menu_available_qty": "1000",
+                "quantity": 1,
+                "gst": 1.05,
+                "description": "Idly is a type of savoury rice cake, originating from the Indian subcontinent, popular as breakfast foods in Southern India. "
+            },
+            {
+                "menu_id": "561",
+                "menu_name": "Idly",
+                "menu_image": "https://geekrobocook.com/wp-content/uploads/2021/05/Keto-Idly.jpg",
+                "menu_price": 15,
+                "menu_type": "veg",
+                "menu_available_qty": "1000",
+                "quantity": 1,
+                "gst": 1.05,
+                "description": "Idly is a type of savoury rice cake, originating from the Indian subcontinent, popular as breakfast foods in Southern India. "
+            },
+            {
+                "menu_id": "246",
+                "menu_name": "Roti",
+                "menu_image": "https://zaykarecipes.com/wp-content/uploads/2017/02/soft-roti-recipe.jpg",
+                "menu_price": 40,
+                "menu_type": "veg",
+                "menu_available_qty": "1000",
+                "quantity": 1,
+                "gst": 2.80,
+                "description": "Roti is made of whole wheat flour and nothing else really and is eaten in India with dal and curries."
+            },
+            {
+                "menu_id": "357",
+                "menu_name": "Idly",
+                "menu_image": "https://geekrobocook.com/wp-content/uploads/2021/05/Keto-Idly.jpg",
+                "menu_price": 15,
+                "menu_type": "veg",
+                "menu_available_qty": "1000",
+                "quantity": 1,
+                "gst": 1.05,
+                "description": "Idly is a type of savoury rice cake, originating from the Indian subcontinent, popular as breakfast foods in Southern India. "
+            },
+            {
+                "menu_id": "559",
+                "menu_name": "Idly",
+                "menu_image": "https://geekrobocook.com/wp-content/uploads/2021/05/Keto-Idly.jpg",
+                "menu_price": 15,
+                "menu_type": "veg",
+                "menu_available_qty": "1000",
+                "quantity": 1,
+                "gst": 1.05,
+                "description": "Idly is a type of savoury rice cake, originating from the Indian subcontinent, popular as breakfast foods in Southern India. "
+            },
+            {
+                "menu_id": "247",
+                "menu_name": "Roti",
+                "menu_image": "https://zaykarecipes.com/wp-content/uploads/2017/02/soft-roti-recipe.jpg",
+                "menu_price": 40,
+                "menu_type": "veg",
+                "menu_available_qty": "1000",
+                "quantity": 1,
+                "gst": 2.80,
+                "description": "Roti is made of whole wheat flour and nothing else really and is eaten in India with dal and curries."
+            },
+            {
+                "menu_id": "358",
+                "menu_name": "Idly",
+                "menu_image": "https://geekrobocook.com/wp-content/uploads/2021/05/Keto-Idly.jpg",
+                "menu_price": 15,
+                "menu_type": "veg",
+                "menu_available_qty": "1000",
+                "quantity": 1,
+                "gst": 1.05,
+                "description": "Idly is a type of savoury rice cake, originating from the Indian subcontinent, popular as breakfast foods in Southern India. "
+            },
+            {
+                "menu_id": "560",
+                "menu_name": "Idly",
+                "menu_image": "https://geekrobocook.com/wp-content/uploads/2021/05/Keto-Idly.jpg",
+                "menu_price": 15,
+                "menu_type": "veg",
+                "menu_available_qty": "1000",
+                "quantity": 1,
+                "gst": 1.05,
+                "description": "Idly is a type of savoury rice cake, originating from the Indian subcontinent, popular as breakfast foods in Southern India. "
+            }
+        ]
+    },
+    {
+        "res_id": "2",
+        "route": "/danjelly",
+        "res_name": "Dan jelly restaurant",
+        "res_image": "https://st.depositphotos.com/1112607/3997/i/450/depositphotos_39979607-stock-photo-italian-restaurant.jpg",
+        "res_img": "https://fullsuitcase.com/wp-content/uploads/2020/06/Authentic-Italian-food-by-region.jpg.webp",
+        "res_address": {
+            "address": "New York, MA, USA",
+            "coordinates1": {
+                "lat": 48.1187679,
+                "long": 11.5485464
+            },
+            "coordinates2": {
+                "lat": 48.1297679,
+                "long": 11.5597464
+            }
+        },
+        "res_phone": "9823782365",
+        "res_web": "https://www.villagesquarerestaurant.com/?gclid=EAIaIQobChMI_e2Q1qSy-gIVpTdyCh2cRAYQEAAYAiAAEgLLLfD_BwE",
+        "res_website": "villagesquarerestaurant.com",
+        "res_type": "nv",
+        "res_data": [
+            {
+                "res_title": "The",
+                "res_name": "Dan jelly restaurant"
+            }
+        ],
+        "menus": [
+            {
+                "menu_id": "345",
+                "menu_name": "Parotta",
+                "menu_image": "https://wallpapercave.com/wp/wp8365304.jpg",
+                "menu_price": 20,
+                "menu_type": "nv",
+                "menu_available_qty": "1000",
+                "quantity": 1,
+                "gst": 1.40,
+                "description": "Porotta is a Subcontinental layered flatbread made from Maida or Atta, alternatively known as flaky ribbon pancake."
+            },
+            {
+                "menu_id": "344",
+                "menu_name": "Shawarma",
+                "menu_image": "https://st2.depositphotos.com/3765753/6393/i/950/depositphotos_63934853-stock-photo-turkish-shawarma-durum-traditional-sish.jpg",
+                "menu_price": 110,
+                "menu_type": "nv",
+                "menu_available_qty": "1000",
+                "quantity": 1,
+                "gst": 7.70,
+                "description": "Shawarma is a Middle Eastern dish of Turkish origin. Consisting of meat cut into thin slices, stacked in a cone-like shape, and roasted on a slowly-turning vertical rotisserie or spit. Traditionally made with lamb or mutton, it may also be made with chicken, turkey, beef, or veal. "
+            },
+            {
+                "menu_id": "240",
+                "menu_name": "Shawarma",
+                "menu_image": "https://st2.depositphotos.com/3765753/6393/i/950/depositphotos_63934853-stock-photo-turkish-shawarma-durum-traditional-sish.jpg",
+                "menu_price": 110,
+                "menu_type": "nv",
+                "menu_available_qty": "1000",
+                "quantity": 1,
+                "gst": 7.70,
+                "description": "Shawarma is a Middle Eastern dish of Turkish origin. Consisting of meat cut into thin slices, stacked in a cone-like shape, and roasted on a slowly-turning vertical rotisserie or spit. Traditionally made with lamb or mutton, it may also be made with chicken, turkey, beef, or veal. "
+            },
+            {
+                "menu_id": "999",
+                "menu_name": "Parotta",
+                "menu_image": "https://wallpapercave.com/wp/wp8365304.jpg",
+                "menu_price": 20,
+                "menu_type": "nv",
+                "menu_available_qty": "1000",
+                "quantity": 1,
+                "gst": 1.40,
+                "description": "Porotta is a Subcontinental layered flatbread made from Maida or Atta, alternatively known as flaky ribbon pancake."
+            },
+            {
+                "menu_id": "354",
+                "menu_name": "Shawarma",
+                "menu_image": "https://st2.depositphotos.com/3765753/6393/i/950/depositphotos_63934853-stock-photo-turkish-shawarma-durum-traditional-sish.jpg",
+                "menu_price": 110,
+                "menu_type": "nv",
+                "menu_available_qty": "1000",
+                "quantity": 1,
+                "gst": 7.70,
+                "description": "Shawarma is a Middle Eastern dish of Turkish origin. Consisting of meat cut into thin slices, stacked in a cone-like shape, and roasted on a slowly-turning vertical rotisserie or spit. Traditionally made with lamb or mutton, it may also be made with chicken, turkey, beef, or veal. "
+            },
+            {
+                "menu_id": "241",
+                "menu_name": "Shawarma",
+                "menu_image": "https://st2.depositphotos.com/3765753/6393/i/950/depositphotos_63934853-stock-photo-turkish-shawarma-durum-traditional-sish.jpg",
+                "menu_price": 110,
+                "menu_type": "nv",
+                "menu_available_qty": "1000",
+                "quantity": 1,
+                "gst": 7.70,
+                "description": "Shawarma is a Middle Eastern dish of Turkish origin. Consisting of meat cut into thin slices, stacked in a cone-like shape, and roasted on a slowly-turning vertical rotisserie or spit. Traditionally made with lamb or mutton, it may also be made with chicken, turkey, beef, or veal. "
+            },
+            {
+                "menu_id": "888",
+                "menu_name": "Parotta",
+                "menu_image": "https://wallpapercave.com/wp/wp8365304.jpg",
+                "menu_price": 20,
+                "menu_type": "nv",
+                "menu_available_qty": "1000",
+                "quantity": 1,
+                "gst": 1.40,
+                "description": "Porotta is a Subcontinental layered flatbread made from Maida or Atta, alternatively known as flaky ribbon pancake."
+            },
+            {
+                "menu_id": "324",
+                "menu_name": "Shawarma",
+                "menu_image": "https://st2.depositphotos.com/3765753/6393/i/950/depositphotos_63934853-stock-photo-turkish-shawarma-durum-traditional-sish.jpg",
+                "menu_price": 110,
+                "menu_type": "nv",
+                "menu_available_qty": "1000",
+                "quantity": 1,
+                "gst": 7.70,
+                "description": "Shawarma is a Middle Eastern dish of Turkish origin. Consisting of meat cut into thin slices, stacked in a cone-like shape, and roasted on a slowly-turning vertical rotisserie or spit. Traditionally made with lamb or mutton, it may also be made with chicken, turkey, beef, or veal. "
+            },
+            {
+                "menu_id": "242",
+                "menu_name": "Shawarma",
+                "menu_image": "https://st2.depositphotos.com/3765753/6393/i/950/depositphotos_63934853-stock-photo-turkish-shawarma-durum-traditional-sish.jpg",
+                "menu_price": 110,
+                "menu_type": "nv",
+                "menu_available_qty": "1000",
+                "quantity": 1,
+                "gst": 7.70,
+                "description": "Shawarma is a Middle Eastern dish of Turkish origin. Consisting of meat cut into thin slices, stacked in a cone-like shape, and roasted on a slowly-turning vertical rotisserie or spit. Traditionally made with lamb or mutton, it may also be made with chicken, turkey, beef, or veal. "
+            }
+        ]
+    }
+]
