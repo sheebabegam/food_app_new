@@ -63,15 +63,29 @@ const Cart = (props) => {
   const [show, setShow] = useState(false);
   const [orderitem, setOrderitem] = useState([]);
 
+  var restaurant_data = localStorage.getItem(
+    "restaurant_data",
+    JSON.stringify(restaurant_data)
+  );
+  var restaurant_details = JSON.parse(restaurant_data);
+
+  var email1 = localStorage.getItem("email1", JSON.stringify(email1));
+  var email_details = JSON.parse(email1);
+  var firstname = localStorage.getItem("firstname", JSON.stringify(firstname));
+  var firstname_details = JSON.parse(firstname);
+  var contact = localStorage.getItem("contact", JSON.stringify(contact));
+  var contact_details = JSON.parse(contact);
+
   const [todos, setTodos] = useState([]);
 
   const foodCollectionRef = collection(db, "order-data");
 
-  const saveChange = async (e) => {
+  const saveChange = async () => {
     // e.preventDefault();
 
     await addDoc(collection(db, "order-data"), {
       orderitems: orderitem,
+      usercontact: contact_details,
     })
       .then(function (res) {
         // alert("Items added");
@@ -105,19 +119,6 @@ const Cart = (props) => {
 
   // const email = localStorage.getItem("email1", JSON.stringify(email));
   // console.log(email);
-
-  var restaurant_data = localStorage.getItem(
-    "restaurant_data",
-    JSON.stringify(restaurant_data)
-  );
-  var restaurant_details = JSON.parse(restaurant_data);
-
-  var email1 = localStorage.getItem("email1", JSON.stringify(email1));
-  var email_details = JSON.parse(email1);
-  var firstname = localStorage.getItem("firstname", JSON.stringify(firstname));
-  var firstname_details = JSON.parse(firstname);
-  var contact = localStorage.getItem("contact", JSON.stringify(contact));
-  var contact_details = JSON.parse(contact);
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));

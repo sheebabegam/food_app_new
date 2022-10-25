@@ -16,45 +16,47 @@ const Modals = ({ handleClose, show, children }) => {
   const navigate = useNavigate();
   const [orderData, setOrderData] = useState([]);
 
-  useEffect(() => {
-    var order_details = localStorage.getItem(
-      "order_details",
-      JSON.stringify(order_details)
-    );
-    var order_data = JSON.parse(order_details);
-    console.log(order_details);
-    setOrderData(order_data);
-  }, []);
+  // useEffect(() => {
+  //   var order_details = localStorage.getItem(
+  //     "order_details",
+  //     JSON.stringify(order_details)
+  //   );
+  //   var order_data = JSON.parse(order_details);
+  //   console.log(order_details);
+  //   setOrderData(order_data);
+  // }, []);
 
-  const retriveData = async () => {
-    const response = await api.get("/orderData");
-    return response.data;
-  };
-  var order_details = localStorage.getItem(
-    "order_details",
-    JSON.stringify(order_details)
-  );
-  var order_data = JSON.parse(order_details);
-  const onSubmit = async (data) => {
-    console.log(data);
-    const request = {
-      id: uuidv4(),
-      orders: order_data,
-    };
-    const response = await api.post("/orderData", request);
-    setOrderData([...orderData, response.data]);
-  };
+  // const retriveData = async () => {
+  //   const response = await api.get("/orderData");
+  //   return response.data;
+  // };
+  // var order_details = localStorage.getItem(
+  //   "order_details",
+  //   JSON.stringify(order_details)
+  // );
+  // var order_data = JSON.parse(order_details);
 
-  useEffect(() => {
-    const getData = async () => {
-      const allData = await retriveData();
-      if (allData) setOrderData(allData);
-    };
-    getData();
-  }, []);
+  // const onSubmit = async (data) => {
+  //   console.log(data);
+  //   const request = {
+  //     id: uuidv4(),
+  //     orders: order_data,
+
+  //   };
+  //   const response = await api.post("/orderData", request);
+  //   setOrderData([...orderData, response.data]);
+  // };
+
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     const allData = await retriveData();
+  //     if (allData) setOrderData(allData);
+  //   };
+  //   getData();
+  // }, []);
 
   const toHome = (product, data) => {
-    onSubmit(data);
+    // onSubmit(data);
     navigate("/");
     dispatch({ type: "STORE_NAME_RESET", payload: product });
     localStorage.setItem("cart", JSON.stringify([]));
