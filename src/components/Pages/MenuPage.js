@@ -15,17 +15,18 @@ import ModalAlert from "../Modal/ModalAlert";
 import ModalBox from "../Modal/ModalBox";
 import GoogleMaps from "simple-react-google-maps";
 import "../style.css";
-import { onAuthStateChanged, signOut } from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../firebase";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Const } from "../../assets/styles/Constants";
 
 const useStyles = makeStyles({
   backImage: {
-    // backgroundImage: `url(${royal_site})`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     height: 500,
+    maxWidth: "1320px",
   },
 
   box: {
@@ -85,6 +86,49 @@ const useStyles = makeStyles({
     display: "flex",
     justifyContent: "space-around",
   },
+  the: {
+    paddingTop: 25,
+    fontFamily: "cursive",
+    color: "white",
+    fontSize: 40,
+  },
+  resta_name: {
+    fontFamily: "cursive",
+    color: "white",
+    fontSize: 70,
+  },
+  special_menu: {
+    fontFamily: "cursive",
+    textAlign: "start",
+    marginLeft: "290px !important",
+    fontSize: "35px !important",
+    fontWeight: "bolder",
+    color: "#6439ff",
+    marginTop: "15px !important",
+  },
+  menu_words: {
+    fontFamily: "cursive",
+    textAlign: "start",
+    marginLeft: "290px !important",
+    fontSize: "15px !important",
+    color: Const.appColor,
+    marginBottom: 5,
+  },
+  card1: {
+    borderRadius: 20,
+    marginBottom: 40,
+  },
+  name_menu: {
+    fontFamily: "cursive",
+  },
+  addcartbtn: {
+    fontWeight: "bold",
+    fontFamily: "cursive",
+  },
+  rupees: {
+    fontFamily: "cursive",
+    fontSize: 16,
+  },
 });
 
 export default function Menu_Page(props) {
@@ -111,9 +155,8 @@ export default function Menu_Page(props) {
   const [foodDetails, setFoodDetails] = useState([]);
 
   const notify = () => {
-    // toast("Item Added!");
     toast.success("Items Added", {
-      autoClose: 500,
+      autoClose: 250,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
@@ -122,7 +165,6 @@ export default function Menu_Page(props) {
   };
 
   const addcart = (product, e) => {
-    // console.log(user_details.contact);
     if (user === null) {
       setShow(true);
     } else {
@@ -179,23 +221,11 @@ export default function Menu_Page(props) {
       <Container
         className={classes.backImage}
         style={{
-          maxWidth: "1320px",
           backgroundImage: `url(${location.state.id.res_img})`,
         }}
       >
-        <Typography
-          sx={{
-            paddingTop: 25,
-            fontFamily: "cursive",
-            color: "white",
-            fontSize: 40,
-          }}
-        >
-          The
-        </Typography>
-        <Typography
-          sx={{ fontFamily: "cursive", color: "white", fontSize: 70 }}
-        >
+        <Typography className={classes.the}>The</Typography>
+        <Typography className={classes.resta_name}>
           <b>{location.state.id.res_name}</b>
         </Typography>
       </Container>
@@ -203,6 +233,7 @@ export default function Menu_Page(props) {
       <div className="map">
         <GoogleMaps
           apiKey={"AIzaSyDw96E-JeiaACLrNOAP_lBdmtlYmV76iis"}
+          className="google1"
           style={{
             height: "400px",
             width: "50%",
@@ -215,9 +246,8 @@ export default function Menu_Page(props) {
             { lat: lat2, lng: long2 },
           ]}
         />
-        {/* sx={{ fontFamily: "cursive", color: "white", fontSize: 70 }} */}
 
-        <div style={{ fontFamily: "cursive", marginLeft: "150px" }}>
+        <div className="address_res">
           <h3>
             <b>Contact Us</b>
           </h3>{" "}
@@ -246,30 +276,9 @@ export default function Menu_Page(props) {
         </div>
       </div>
 
-      <Typography
-        sx={{
-          fontFamily: "cursive",
-          textAlign: "start",
-          marginLeft: 38,
-          fontSize: 35,
-          fontWeight: "bolder",
-          color: "#6439ff",
-          marginTop: 15,
-        }}
-      >
-        Our Special Menu
-      </Typography>
+      <Typography className={classes.special_menu}>Our Special Menu</Typography>
 
-      <Typography
-        sx={{
-          fontFamily: "cursive",
-          textAlign: "start",
-          marginLeft: 38,
-          fontSize: 15,
-          color: "#6439ff",
-          marginBottom: 5,
-        }}
-      >
+      <Typography className={classes.menu_words}>
         <i>"You don't need a silver fork to eat good food"</i>
       </Typography>
       <ToastContainer />
@@ -277,11 +286,7 @@ export default function Menu_Page(props) {
       <div className="main_div">
         <div className={classes.container1}>
           {location.state.id.menus.map((product, i) => (
-            <div
-              className="card1"
-              key={product.menu_id}
-              style={{ borderRadius: 20, marginBottom: 40 }}
-            >
+            <div className="card1" key={product.menu_id}>
               <div className="margins">
                 <Card className={classes.cards}>
                   <CardActionArea>
@@ -299,7 +304,7 @@ export default function Menu_Page(props) {
                         gutterBottom
                         variant="h6"
                         component="h6"
-                        sx={{ fontFamily: "cursive" }}
+                        className={classes.name_menu}
                       >
                         {product.menu_name}
                       </Typography>
@@ -308,9 +313,8 @@ export default function Menu_Page(props) {
 
                   <CardActions className={classes.action1}>
                     <Button
-                      sx={{ fontWeight: "bold", fontFamily: "cursive" }}
+                      className={classes.addcartbtn}
                       onClick={(e) => {
-                        // eslint-disable-next-line no-lone-blocks
                         {
                           if (!cart.includes(product.menu_id)) {
                             user && dispatch({ type: "ADD", payload: product });
@@ -327,7 +331,7 @@ export default function Menu_Page(props) {
                       gutterBottom
                       variant="h6"
                       component="h6"
-                      sx={{ fontFamily: "cursive", fontSize: 16 }}
+                      className={classes.rupees}
                     >
                       Rs. {product.menu_price}.00 /-
                     </Typography>
@@ -336,81 +340,18 @@ export default function Menu_Page(props) {
               </div>
 
               <ModalBox show1={show1} handleClose1={handleClose1}>
-                <div
-                  style={{
-                    color: "black",
-                    textAlign: "center",
-                    fontSize: "20px",
-                  }}
-                >
-                  <p
-                    style={{
-                      display: "flex",
-                      alignItems: "start",
-                      justifyContent: "start",
-                      fontSize: "20px",
-                      marginTop: "15px",
-                      textAlign: "left",
-                      padding: "0px 20px",
-                    }}
-                  >
-                    <h6
-                      style={{
-                        width: "126px",
-                        fontWeight: "bold",
-                        fontSize: "20px",
-                      }}
-                    >
-                      Menu Name
-                    </h6>
-                    : &nbsp; <p>{foodDetails.menu_name}</p>
+                <div className="modalbox">
+                  <p className="para1">
+                    <h6 className="h61">Menu Name</h6>: &nbsp;{" "}
+                    <p>{foodDetails.menu_name}</p>
                   </p>
-                  <p
-                    style={{
-                      display: "flex",
-                      alignItems: "start",
-                      justifyContent: "start",
-                      fontSize: "20px",
-                      marginTop: "15px",
-                      textAlign: "left",
-                      padding: "0px 20px",
-                    }}
-                  >
-                    <h6
-                      style={{
-                        width: "126px",
-                        fontWeight: "bold",
-                        fontSize: "20px",
-                      }}
-                    >
-                      Price
-                    </h6>{" "}
-                    : &nbsp; <p>Rs. {foodDetails.menu_price}/-</p>
+                  <p className="para2">
+                    <h6 className="h62">Price</h6> : &nbsp;{" "}
+                    <p>Rs. {foodDetails.menu_price}/-</p>
                   </p>
-                  <p
-                    style={{
-                      display: "flex",
-                      alignItems: "start",
-                      justifyContent: "start",
-                      fontSize: "20px",
-                      marginTop: "15px",
-                      textAlign: "left",
-                      padding: "0px 20px",
-                    }}
-                  >
-                    <h6
-                      style={{
-                        width: "310px",
-                        fontWeight: "bold",
-                        fontSize: "20px",
-                      }}
-                    >
-                      Description
-                    </h6>{" "}
-                    : &nbsp;{" "}
-                    <p style={{ textAlign: "justify", fontSize: "20px" }}>
-                      {foodDetails.description}
-                    </p>
+                  <p className="para3">
+                    <h6 className="h63">Description</h6> : &nbsp;{" "}
+                    <p className="para4">{foodDetails.description}</p>
                   </p>
 
                   <br />
@@ -421,15 +362,8 @@ export default function Menu_Page(props) {
         </div>
 
         <ModalAlert show={show} handleClose={handleClose}>
-          <div
-            style={{
-              color: "black",
-              textAlign: "center",
-              fontSize: "20px",
-              marginTop: "-40px",
-            }}
-          >
-            <p style={{ fontSize: "25px", marginTop: "15px" }}>
+          <div className="modalAlert">
+            <p className="modalAlert_para">
               <b>
                 <i>
                   Please{" "}

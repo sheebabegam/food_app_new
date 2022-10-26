@@ -41,12 +41,15 @@ function LoginNew() {
     try {
       await signInWithEmailAndPassword(auth, email, password).then((res) => {
         console.log(res.user);
-        navigate("/home");
+        navigate("/");
       });
     } catch (err) {
       setError(err.message);
-      navigate("/");
+      // navigate("/");
     }
+    await setTimeout(function () {
+      window.location.reload();
+    });
   };
   return (
     <div

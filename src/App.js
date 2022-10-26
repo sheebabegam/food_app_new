@@ -17,7 +17,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home_New />} />
-        <Route path="/home" element={<Home_New />} />
+        {/* <Route path="/home" element={<Home_New />} /> */}
         <Route path="/cart" element={<Cart />} />
         {/* <Route path="/register" element={<Register db={db} />} /> */}
         <Route path="/register_new" element={<Register_New db={db} />} />

@@ -8,7 +8,7 @@ import "../Modal/modal.css";
 import Modals from "../Modal/Modals.js";
 import ReactTooltip from "react-tooltip";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import { collection, doc, addDoc, getDocs, getDoc } from "firebase/firestore";
+import { collection, addDoc } from "firebase/firestore";
 import "../style.css";
 import { db } from "../../firebase";
 
@@ -56,10 +56,19 @@ const useStyles = makeStyles({
     justifyContent: "space-between",
     alignItems: "center",
   },
+  backtomenubtn: {
+    marginBottom: 50,
+    backgroundColor: "#6439ff",
+    fontWeight: "bold",
+    position: "absolute",
+    left: 183,
+    borderRadius: 10,
+    fontFamily: "cursive",
+  },
 });
 
 const Cart = (props) => {
-  console.log("DB is", props);
+  // console.log("DB is", props);
   const [show, setShow] = useState(false);
   const [orderitem, setOrderitem] = useState([]);
 
@@ -76,37 +85,28 @@ const Cart = (props) => {
   var contact = localStorage.getItem("contact", JSON.stringify(contact));
   var contact_details = JSON.parse(contact);
 
-  const [todos, setTodos] = useState([]);
-
-  const foodCollectionRef = collection(db, "order-data");
-
   const saveChange = async () => {
     // e.preventDefault();
+    console.log("Orders are ", orderitem);
 
-    await addDoc(collection(db, "order-data"), {
+    const data = collection(db, "order-data");
+    await addDoc(data, {
       orderitems: orderitem,
       usercontact: contact_details,
     })
+      // await addDoc(collection(db, "order-data"), {
+      //   orderitems: orderitem,
+      //   usercontact: contact_details,
+      // })
       .then(function (res) {
         // alert("Items added");
+        console.log(res);
       })
       .catch(function (err) {
         // alert("Details cannot be added");
+        console.log(err);
       });
-
-    window.location.reload();
   };
-
-  // const getOrderItem = () => {
-  //   const getFromFirebase = getDocs(collection("order-data"));
-  //   getFromFirebase.onSnapshot((querySnapShot) => {
-  //     const allorders = [];
-  //     querySnapShot.forEach((doc) => {
-  //       saveFirebaseTodos.push(doc.data());
-  //     });
-  //     setTodos(saveFirebaseTodos);
-  //   });
-  // };
 
   const classes = useStyles();
 
@@ -203,22 +203,23 @@ const Cart = (props) => {
       },
     };
 
-    // setState(prevState => { // Object.assign would also work
-    //   return {...prevState, ...updatedValues};
-    // });
-
     orderitem.push(menu_details);
 
-    // var order_details = localStorage.setItem(
-    //   "order_details",
-    //   JSON.stringify(menu_details)
-    // );
+    const promise = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        saveChange();
+      }, 1000);
+    });
 
-    await saveChange();
+    promise
+      .then((val) => {
+        console.log(val);
+      })
+      .catch((err) => console.log(err));
+
+    // await saveChange();
   };
   console.log(orderitem);
-
-  //{get firestore data}
 
   // Modal
 
@@ -227,26 +228,12 @@ const Cart = (props) => {
 
   return (
     <div className="cartcontainer">
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-around",
-          textAlign: "center",
-        }}
-      >
+      <div className="contain1">
         <Button
           variant="contained"
           aria-label="outlined primary button group"
           onClick={() => navigate(-1)}
-          style={{
-            marginBottom: 50,
-            backgroundColor: "#6439ff",
-            fontWeight: "bold",
-            position: "absolute",
-            left: 183,
-            borderRadius: 10,
-            fontFamily: "cursive",
-          }}
+          className={classes.backtomenubtn}
         >
           {" "}
           Back to Menu

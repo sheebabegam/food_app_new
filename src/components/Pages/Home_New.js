@@ -1,13 +1,7 @@
 import React from "react";
 import home_img from "../../images/home_img.png";
 import "../style.css";
-import PropTypes from "prop-types";
 import Box from "@mui/material/Box";
-import Divider from "@mui/material/Divider";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
@@ -21,6 +15,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import restaurant from "../Data/restaurant.json";
 import { Link } from "react-router-dom";
+import { Const } from "../../assets/styles/Constants";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -37,12 +32,16 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
   },
+  rest_name: {
+    fontFamily: "cursive",
+    fontWeight: "bold",
+    color: Const.appColor,
+  },
 
   box: {
     marginRight: 50,
     borderRadius: 20,
     position: "relative",
-    // padding: `${theme.spacing(2)}px ${theme.spacing(1)}px`,
     display: "flex",
     flexDirection: "column",
 
@@ -57,7 +56,6 @@ const useStyles = makeStyles((theme) => ({
 
   card: {
     width: 445,
-    // maxHeight: 450,
     borderRadius: 20,
   },
 
@@ -68,6 +66,15 @@ const useStyles = makeStyles((theme) => ({
   action: {
     display: "flex",
     justifyContent: "space-around",
+    marginBottom: "13px",
+  },
+  viewmenu: {
+    fontFamily: "cursive",
+    fontWeight: "bold",
+    color: "#6439ff !important",
+    border: "1px solid #6439ff",
+    borderRadius: "10px",
+    padding: "7px",
   },
 
   pick: {
@@ -93,13 +100,11 @@ function Home_New() {
 
       <div>
         <div>
-          {/* <p className="home_text1">Explore the good foods here</p>
-          <p className="home_text2">One Thousand Flavours, One Place</p> */}
           <br />
           <br />
           <p className="dish_num">
-            More than <span style={{ color: "#6439ff" }}>20,000</span> dishes to
-            order!{" "}
+            More than <span style={{ color: Const.appColor }}>20,000</span>{" "}
+            dishes to order!{" "}
           </p>
           <p className="small_text">
             Welcome to the biggest network of food order and delivery
@@ -108,19 +113,7 @@ function Home_New() {
 
         <Container className={classes.imageBack}>
           <Toolbar />
-          {/* <Typography
-            variant="h6"
-            paragraph
-            align="center"
-            sx={{
-              fontSize: 45,
-              fontFamily: "cursive",
-              fontWeight: "bolder",
-              color: "whitesmoke",
-            }}
-          >
-            Pick your Restaurant
-          </Typography> */}
+
           <Container className={classes.container}>
             {restaurant.map((product) => {
               return (
@@ -139,26 +132,18 @@ function Home_New() {
                           gutterBottom
                           variant="h5"
                           component="h2"
-                          sx={{
-                            fontFamily: "cursive",
-                            fontWeight: "bold",
-                            color: "#6439ff",
-                          }}
+                          className={classes.rest_name}
                         >
                           {product.res_name}
                         </Typography>
                       </CardContent>
                     </CardActionArea>
-                    <CardActions
-                      className={classes.action}
-                      style={{ marginBottom: "13px" }}
-                    >
+                    <CardActions className={classes.action}>
                       <Link to={{ pathname: "/menu" }} state={{ id: product }}>
                         <Button
                           size="small"
                           color="primary"
                           onClick={() => {
-                            // navigate('/menu');
                             const restaurant_details = {
                               res_phone: product.res_phone,
                               res_name: product.res_name,
@@ -169,14 +154,7 @@ function Home_New() {
                               JSON.stringify(restaurant_details)
                             );
                           }}
-                          sx={{
-                            fontFamily: "cursive",
-                            fontWeight: "bold",
-                            color: "#6439ff",
-                            border: "1px solid #6439ff",
-                            borderRadius: "10px",
-                            padding: "7px",
-                          }}
+                          className={classes.viewmenu}
                         >
                           View Menu
                         </Button>

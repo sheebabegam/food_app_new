@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./modal.css";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import api from "../../api/orderData";
-import { v4 as uuidv4 } from "uuid";
 import Button from "@mui/material/Button";
 import green_tic from "../../images/green_tic.png";
 import close from "../../images/close.jfif";
@@ -14,49 +12,8 @@ const Modals = ({ handleClose, show, children }) => {
 
   const showHideClassName = show ? "modal display-block" : "modal display-none";
   const navigate = useNavigate();
-  const [orderData, setOrderData] = useState([]);
-
-  // useEffect(() => {
-  //   var order_details = localStorage.getItem(
-  //     "order_details",
-  //     JSON.stringify(order_details)
-  //   );
-  //   var order_data = JSON.parse(order_details);
-  //   console.log(order_details);
-  //   setOrderData(order_data);
-  // }, []);
-
-  // const retriveData = async () => {
-  //   const response = await api.get("/orderData");
-  //   return response.data;
-  // };
-  // var order_details = localStorage.getItem(
-  //   "order_details",
-  //   JSON.stringify(order_details)
-  // );
-  // var order_data = JSON.parse(order_details);
-
-  // const onSubmit = async (data) => {
-  //   console.log(data);
-  //   const request = {
-  //     id: uuidv4(),
-  //     orders: order_data,
-
-  //   };
-  //   const response = await api.post("/orderData", request);
-  //   setOrderData([...orderData, response.data]);
-  // };
-
-  // useEffect(() => {
-  //   const getData = async () => {
-  //     const allData = await retriveData();
-  //     if (allData) setOrderData(allData);
-  //   };
-  //   getData();
-  // }, []);
 
   const toHome = (product, data) => {
-    // onSubmit(data);
     navigate("/");
     dispatch({ type: "STORE_NAME_RESET", payload: product });
     localStorage.setItem("cart", JSON.stringify([]));

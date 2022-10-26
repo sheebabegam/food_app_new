@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
@@ -6,21 +6,16 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { useNavigate, Link } from "react-router-dom";
-import Paper from "@material-ui/core/Paper";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import { onAuthStateChanged, signOut } from "firebase/auth";
-import Fetch_Data from "../../Fetch_Data";
 import "../style.css";
-import { ref, uploadBytes, getDownloadURL, listAll } from "firebase/storage";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { collection, addDoc } from "firebase/firestore";
 import { auth, storage } from "../../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import TextField from "@material-ui/core/TextField";
 import { styled } from "@mui/material/styles";
 import { v4 } from "uuid";
-import PersonAddIcon from "@mui/icons-material/PersonAdd";
-import { toast } from "react-toastify";
 import user_icon from "../../images/user_icon.png";
 import MonochromePhotosIcon from "@mui/icons-material/MonochromePhotos";
 import side_img from "../../images/side_img.png";
@@ -68,7 +63,7 @@ function Register_New(props) {
       photo: imageUrls,
     })
       .then(function (res) {
-        alert("User details are added successfully");
+        // alert("User details are added successfully");
       })
       .catch(function (err) {
         // alert("Details cannot be added");
@@ -246,7 +241,7 @@ function Register_New(props) {
                         />
                       </div>
                     </div>
-                    <CssTextField
+                    <ReusableInput
                       className={classes.fields}
                       variant="outlined"
                       margin="normal"
@@ -267,7 +262,7 @@ function Register_New(props) {
                       onChange={(e) => setFirstname(e.target.value)}
                     />
 
-                    <CssTextField
+                    <ReusableInput
                       className={classes.fields}
                       variant="outlined"
                       margin="normal"
@@ -287,7 +282,7 @@ function Register_New(props) {
                       value={lastname}
                       onChange={(e) => setLastname(e.target.value)}
                     />
-                    <CssTextField
+                    <ReusableInput
                       className={classes.fields}
                       variant="outlined"
                       margin="normal"
@@ -307,7 +302,7 @@ function Register_New(props) {
                       value={contact}
                       onChange={(e) => setContact(e.target.value)}
                     />
-                    <CssTextField
+                    <ReusableInput
                       className={classes.fields}
                       variant="outlined"
                       margin="normal"
@@ -327,7 +322,7 @@ function Register_New(props) {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                     />
-                    <CssTextField
+                    <ReusableInput
                       className={classes.fields}
                       variant="outlined"
                       margin="normal"
@@ -390,7 +385,7 @@ function Register_New(props) {
 
 export default Register_New;
 
-const CssTextField = styled(TextField)({
+const ReusableInput = styled(TextField)({
   "& label.Mui-focused": {
     color: "#9c9a9a",
   },
@@ -423,7 +418,6 @@ const useStyles = makeStyles((theme) => ({
   subtitle: {
     color: "black",
     fontFamily: "cursive",
-    // textShadow: "2px 2px rgb(201 201 201 / 47%)",
   },
   avatar: {
     margin: theme.spacing(1),

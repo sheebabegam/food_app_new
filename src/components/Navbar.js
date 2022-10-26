@@ -2,19 +2,11 @@ import React, { useState, useEffect } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
-import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
 import ShoppingCartCheckoutIcon from "@mui/icons-material/ShoppingCartCheckout";
 import { Link, useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
 import "./style.css";
 import { auth } from "../firebase";
@@ -22,18 +14,9 @@ import { onAuthStateChanged, signOut } from "firebase/auth";
 import Fetch_Data from "../Fetch_Data";
 import PowerSettingsNewSharpIcon from "@mui/icons-material/PowerSettingsNewSharp";
 import logo_delivery from "../images/logo_delivery.jpg";
+import { Const } from "../assets/styles/Constants";
 
 const useStyles = makeStyles({
-  box2: {
-    // display: 'flex',
-    // justifyContent: 'space-around',
-    // alignItems: 'baseline'
-  },
-  // "& .MuiPaper-root": {
-  //   position: "sticky",
-  //   top: 0,
-  //   zIndex: 100,
-  // },
   largeIcon: {
     width: "80px",
     height: "80px",
@@ -41,6 +24,130 @@ const useStyles = makeStyles({
   mainbar: {
     fontFamily: "cursive",
   },
+  box_nav: {
+    flexGrow: 1,
+    display: { xs: "none", md: "flex" },
+    backgroundColor: Const.appColor,
+    display: "flex",
+    alignItems: "flex-start",
+    justifyContent: "flex-start",
+    marginLeft: 75,
+  },
+  foodApp: {
+    fontSize: "28px !important",
+    color: "white !important",
+    display: "block",
+    fontFamily: "cursive",
+    fontWeight: "bolder",
+  },
+  emailbtn: {
+    marginRight: "-300px",
+    fontFamily: "cursive",
+  },
+  homelink: {
+    textDecoration: "none",
+    backgroundColor: Const.appColor,
+  },
+  homebtn: {
+    my: 1,
+    fontSize: "20px !important",
+    color: "white !important",
+    textDecoration: "none",
+    display: "block",
+    textTransform: "capitalize !important",
+    fontFamily: "cursive",
+  },
+  orderHist_link: {
+    textDecoration: "none",
+    backgroundColor: Const.appColor,
+  },
+  orderHist_btn: {
+    my: 1,
+    fontSize: "20px !important",
+    color: "white !important",
+    textDecoration: "none",
+    display: "block",
+    textTransform: "capitalize !important",
+    fontFamily: "cursive",
+  },
+  loggedEmail: {
+    my: 1,
+    color: "white !important",
+    textDecoration: "none",
+    fontSize: "20px !important",
+    backgroundColor: Const.appColor,
+    textTransform: "lowercase !important",
+    fontFamily: "cursive",
+  },
+  cartButton: {
+    // my: 1,
+    fontSize: "20px !important",
+    color: "white !important",
+    display: "block",
+    // minWidth: "0px",
+    // padding: "0px",
+  },
+  cartIcon: {
+    fontSize: "30px !important",
+    color: "white !important",
+  },
+  logoutbtn: {
+    my: 2,
+    fontSize: "25px !important",
+    color: "white !important",
+    display: "block",
+    textTransform: "capitalize",
+  },
+  logoutIcon: {
+    fontSize: "30px !important",
+    color: "white !important",
+    // marginTop: "10px !important",
+  },
+  box2: {
+    width: 300,
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginRight: "80px",
+  },
+  box2Btn: {
+    my: 2,
+    fontSize: "20px !important",
+    color: "white !important",
+    display: "block",
+    textTransform: "capitalize",
+  },
+  signup_btn: {
+    my: 2,
+    fontSize: "20px !important",
+    color: "white !important",
+    display: "block",
+    textTransform: "capitalize",
+  },
+  signin_btn: {
+    my: 2,
+    fontSize: "20px !important",
+    color: "white !important",
+    display: "block",
+    textTransform: "capitalize",
+  },
+  emailNav: {
+    width: 700,
+    display: "flex",
+    justifyContent: "space-around",
+    alignItems: "baseline",
+  },
+  // cart_items: {
+  //   fontSize: "0.5em",
+  //   color: "white",
+  //   backgroundColor: "red",
+  //   padding: "4px 6px",
+  //   borderRadius: "50%",
+  //   marginTop: "-20px",
+  //   transform: "translate(100px, -300px)",
+  //   verticalAlign: "top",
+  //   fontFamily: "cursive",
+  // },
 });
 
 const pages = ["Register", "Login"];
@@ -67,8 +174,6 @@ const Navbar = () => {
     console.log("USER EMAIL is", email);
   }, []);
 
-  // console.log("USER EMAIL is", email);
-
   useEffect(() => {
     getUsers();
   }, []); // If empty Array, this dependency will run only one time
@@ -90,7 +195,9 @@ const Navbar = () => {
       localStorage.setItem("restaurant_data", JSON.stringify([]));
 
       navigate("/");
-      window.location.roload();
+      setTimeout(function () {
+        window.location.reload();
+      });
     } catch (error) {
       console.log(error.message);
     }
@@ -123,125 +230,36 @@ const Navbar = () => {
     });
   });
 
-  // const email1 = localStorage.setItem(
-  //   "email1",
-  //   JSON.stringify(auth.currentUser.email)
-  // );
-  // console.log(email1);
-
-  // const firstName = JSON.parse(localStorage.setItem("user.firstname"));
-  // console.log(firstName);
-
-  // const lastName = JSON.parse(localStorage.setItem("user.lastname"));
-  // console.log(lastName);
-
   console.log("user -->", user);
 
   return (
     <AppBar position="static" className="mainbar">
       <header
+        className="header_nav"
         style={{
-          background: "#6439ff",
-          position: "sticky",
-          top: 0,
+          background: Const.appColor,
         }}
       >
         <Container
           maxWidth="xxl"
-          sx={{ backgroundColor: "#6439ff", position: "sticky" }}
+          className="container_nav"
+          sx={{ backgroundColor: Const.appColor }}
         >
           <Toolbar disableGutters>
-            <Box
-              sx={{
-                flexGrow: 1,
-                display: { xs: "none", md: "flex" },
-                backgroundColor: "#6439ff",
-                marginLeft: 10,
-              }}
-            >
-              {/* <Box>
-                 <Link to="/">
-                  <i
-                    class="bi bi-house-door"
-                    style={{
-                      color: "white",
-                      fontSize: "33px",
-                    }}
-                  ></i>
-                </Link> 
-                
-              </Box> */}
-              <img
-                src={logo_delivery}
-                alt="Logo"
-                style={{ height: "50px", width: "50px", marginRight: "20px" }}
-              />
+            <Box className={classes.box_nav}>
+              <img src={logo_delivery} alt="Logo" className="img_nav" />
 
-              <Button
-                sx={{
-                  // my: 2,
-                  fontSize: 28,
-                  color: "white",
-                  display: "block",
-                  fontFamily: "cursive",
-                  fontWeight: "bolder",
-                }}
-              >
-                FOOD DELIVERY APP
-              </Button>
+              <Button className={classes.foodApp}>FOOD DELIVERY APP</Button>
             </Box>
 
-            <Box sx={{ marginRight: "-300px", fontFamily: "cursive" }}>
+            <Box className={classes.emailbtn}>
               {email.length !== 0 && auth.currentUser && (
-                <div
-                  style={{
-                    width: 700,
-                    display: "flex",
-                    justifyContent: "space-around",
-                    alignItems: "baseline",
-                  }}
-                >
-                  <Link
-                    to="/"
-                    sx={{
-                      textDecoration: "none",
-                      backgroundColor: "#6439ff",
-                    }}
-                    className="link_underline"
-                  >
-                    <Button
-                      sx={{
-                        my: 1,
-                        fontSize: 20,
-                        color: "white",
-                        textDecoration: "none",
-                        display: "block",
-                        textTransform: "capitalize",
-                        fontFamily: "cursive",
-                      }}
-                    >
-                      Home
-                    </Button>
+                <div className={classes.emailNav}>
+                  <Link to="/" className={classes.homelink}>
+                    <Button className={classes.homebtn}>Home</Button>
                   </Link>
-                  <Link
-                    to="/order_history"
-                    sx={{
-                      textDecoration: "none",
-                      backgroundColor: "#6439ff",
-                    }}
-                    className="link_underline"
-                  >
-                    <Button
-                      sx={{
-                        my: 1,
-                        fontSize: 20,
-                        color: "white",
-                        textDecoration: "none",
-                        display: "block",
-                        textTransform: "capitalize",
-                        fontFamily: "cursive",
-                      }}
-                    >
+                  <Link to="/order_history" className={classes.orderHist_link}>
+                    <Button className={classes.orderHist_btn}>
                       Order History
                     </Button>
                   </Link>
@@ -250,18 +268,7 @@ const Navbar = () => {
                     users.map((item, i) =>
                       user?.email === item?.email ? (
                         <div key="id">
-                          <Button
-                            style={{
-                              my: 1,
-                              color: "white",
-                              textDecoration: "none",
-                              fontSize: 20,
-                              backgroundColor: "#6439ff",
-                              textTransform: "lowercase",
-                              fontFamily: "cursive",
-                            }}
-                            className="link_underline"
-                          >
+                          <Button className={classes.loggedEmail}>
                             {item.email}
                           </Button>
                           <img
@@ -273,112 +280,43 @@ const Navbar = () => {
                       ) : null
                     )}
 
-                  <Link to="/cart" className="link_underline">
-                    <Button
-                      sx={{
-                        my: 1,
-                        fontSize: 20,
-                        color: "white",
-                        display: "block",
-                        minWidth: "0px",
-                        padding: "0px",
-                      }}
-                    >
+                  <Link to="/cart">
+                    <Button className={classes.cartButton}>
                       <ShoppingCartCheckoutIcon
                         iconStyle={useStyles.largeIcon}
-                        sx={{
-                          fontSize: 30,
-                          color: "white",
-                        }}
+                        className={classes.cartIcon}
                       ></ShoppingCartCheckoutIcon>
-
-                      <span
-                        className="cart-items"
-                        style={{ fontFamily: "cursive" }}
-                      >
-                        {cart && cart.length}
-                      </span>
+                      <span className="cart">{cart && cart.length}</span>
+                      {/* <span className="cart_items">{cart && cart.length}</span> */}
                     </Button>
                   </Link>
 
-                  <Button
-                    className="link_underline"
-                    sx={{
-                      my: 2,
-                      fontSize: 25,
-                      color: "white",
-                      display: "block",
-                      textTransform: "capitalize",
-                    }}
-                    onClick={handleLogout}
-                  >
-                    <PowerSettingsNewSharpIcon
-                      sx={{
-                        fontSize: 30,
-                        color: "white",
-                      }}
-                    />
+                  <Button className={classes.logoutbtn} onClick={handleLogout}>
+                    <PowerSettingsNewSharpIcon className={classes.logoutIcon} />
                   </Button>
                 </div>
               )}
             </Box>
 
-            <Box
-              sx={{
-                width: 300,
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                marginRight: "80px",
-              }}
-              className={classes.box2}
-            >
+            <Box className={classes.box2}>
               {email.length === 0 && (
                 <Link to="/">
-                  <Button
-                    sx={{
-                      my: 2,
-                      fontSize: 20,
-                      color: "white",
-                      display: "block",
-                      textTransform: "capitalize",
-                    }}
-                  >
-                    Home
-                  </Button>
+                  <Button className={classes.box2Btn}>Home</Button>
                 </Link>
               )}
 
               {email.length === 0 && (
                 <Link to="/register_new">
-                  <Button
-                    sx={{
-                      my: 2,
-                      fontSize: 20,
-                      color: "white",
-                      display: "block",
-                      textTransform: "capitalize",
-                    }}
-                  >
-                    Sign up
-                  </Button>
+                  <Button className={classes.signup_btn}>Sign up</Button>
                 </Link>
               )}
 
               {email.length === 0 && (
                 <Link to="/login">
                   <Button
+                    className={classes.signin_btn}
                     onClick={() => {
                       setIsregister(true);
-                      // setLogin(true);
-                      // setLogo(true);
-                    }}
-                    sx={{
-                      my: 2,
-                      fontSize: 20,
-                      color: "white",
-                      display: "block",
-                      textTransform: "capitalize",
                     }}
                   >
                     Sign in
@@ -394,13 +332,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-{
-  /* <i
-                  class="bi bi-house-door"
-                  style={{
-                    color: "white",
-                    fontSize: "30px",
-                  }}
-                ></i> */
-}
