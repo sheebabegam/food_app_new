@@ -11,6 +11,7 @@ import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import { collection, addDoc } from "firebase/firestore";
 import "../style.css";
 import { db } from "../../firebase";
+import { Const } from "../../assets/styles/Constants";
 
 const useStyles = makeStyles({
   backImage: {
@@ -32,8 +33,8 @@ const useStyles = makeStyles({
   },
 
   card: {
-    width: 500,
-    height: 750,
+    marginTop: "30px",
+    borderRadius: "20px",
   },
 
   media: {
@@ -58,12 +59,181 @@ const useStyles = makeStyles({
   },
   backtomenubtn: {
     marginBottom: 50,
-    backgroundColor: "#6439ff",
-    fontWeight: "bold",
+    backgroundColor: Const.appColor,
     position: "absolute",
     left: 183,
-    borderRadius: 10,
-    fontFamily: "cursive",
+    borderRadius: "10px !important",
+    fontFamily: Const.fontFamily,
+    marginRight: "auto !important",
+    fontWeight: Const.fontWeight,
+  },
+  clear_cart_btn: {
+    marginBottom: 50,
+    backgroundColor: Const.appColor,
+    fontWeight: "bold !important",
+    position: "absolute",
+    right: 133,
+    borderRadius: "10px !important",
+    fontFamily: Const.fontFamily,
+  },
+  minus_btn: {
+    backgroundColor: Const.appColor,
+    color: Const.whiteColor,
+    borderRadius: "0px 10px 10px 0px",
+    fontFamily: Const.fontFamily,
+    fontWeight: Const.fontWeight,
+    fontSize: "15px !important",
+  },
+  product_qty_btn: {
+    color: Const.appColor,
+    fontWeight: Const.fontWeight,
+    backgroundColor: Const.whiteColor,
+    fontFamily: Const.fontFamily,
+  },
+  plus_btn: {
+    backgroundColor: Const.appColor,
+    color: Const.whiteColor,
+    borderRadius: "10px 0px 0px 10px !important",
+    fontFamily: Const.fontFamily,
+    fontWeight: Const.fontWeight,
+    fontSize: "15px !important",
+  },
+  remove_btn: {
+    color: Const.appColor,
+    fontFamily: Const.fontFamily,
+    fontWeight: Const.fontWeight,
+  },
+  remove_div: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    padding: "6px",
+    marginBottom: "10px",
+  },
+  buy_btn: {
+    backgroundColor: Const.appColor,
+    borderRadius: "10px !important",
+    fontFamily: Const.fontFamily,
+  },
+  button_group: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: "10px",
+    backgroundColor: Const.appColor,
+    color: Const.whiteColor,
+  },
+  cartcontainer: {
+    marginTop: "30px",
+  },
+  contain1: {
+    display: "flex",
+    justifyContent: "space-around",
+    textAlign: "center",
+  },
+  empty: {
+    fontSize: "40px",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    textAlign: "center",
+    color: Const.appColor,
+    fontWeight: Const.fontWeight,
+    fontFamily: Const.fontFamily,
+  },
+  contain: {
+    width: "60%",
+    display: "flex",
+    justifyContent: "flex-start",
+    alignItems: "center",
+    flexWrap: "wrap",
+    padding: "15px",
+    marginRight: "458px",
+    marginTop: "40px",
+  },
+  wid: {
+    width: "100%",
+  },
+  my_div: {
+    margin: "0px 6px",
+  },
+  division: {
+    marginTop: "50px",
+    marginRight: "10px",
+    marginLeft: "10px",
+  },
+  shade: {
+    boxShadow: "2px 4px 10px 1px rgb(201 201 201 / 47%)",
+    borderRadius: "20px",
+  },
+  cart_menu_img: {
+    height: "260px",
+    width: "288px",
+    borderRadius: "20px 20px 0px 0px",
+  },
+  cart_para: {
+    marginTop: "0px",
+    marginBottom: "0px",
+    fontFamily: Const.fontFamily,
+    textAlign: "left",
+    padding: "5px",
+    marginLeft: "7px",
+  },
+  cart_para_label: {
+    width: "100%",
+  },
+  buynow_div: {
+    fontSize: "20px",
+    textAlign: "left",
+    fontFamily: Const.fontFamily,
+  },
+  para: {
+    display: "inline-block",
+    width: "200px",
+  },
+  buybtn_div: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: "20px",
+    fontFamily: Const.fontFamily,
+  },
+  buy_modal_div: {
+    color: "black",
+    textAlign: "center",
+    fontSize: "20px",
+    marginTop: "-40px",
+    fontFamily: Const.fontFamily,
+  },
+  orderid_label: {
+    marginLeft: "27px",
+  },
+  copytext_box: {
+    fontSize: "20px",
+    borderRadius: "10px",
+    // borderRadius: "none",
+    width: "60%",
+    textAlign: "center",
+    padding: "5px 10px",
+    fontFamily: Const.fontFamily,
+    pointerEvents: "none",
+  },
+  copy_icon: {
+    backgroundColor: Const.whiteColor,
+    fontWeight: Const.fontWeight,
+    fontSize: "25px",
+    borderStyle: "none",
+    borderRadius: "10px",
+    fontFamily: Const.fontFamily,
+  },
+  order_placed_para: {
+    fontSize: "25px",
+    marginTop: "15px",
+    fontFamily: Const.fontFamily,
+  },
+  order_placed_para_small: {
+    fontSize: "15px",
+    fontFamily: Const.fontFamily,
   },
 });
 
@@ -227,8 +397,8 @@ const Cart = (props) => {
   const handleClose = () => setShow(false);
 
   return (
-    <div className="cartcontainer">
-      <div className="contain1">
+    <div className={classes.cartcontainer}>
+      <div className={classes.contain1}>
         <Button
           variant="contained"
           aria-label="outlined primary button group"
@@ -243,15 +413,7 @@ const Cart = (props) => {
           <Button
             variant="contained"
             aria-label="outlined primary button group"
-            style={{
-              marginBottom: 50,
-              backgroundColor: "#6439ff",
-              fontWeight: "bold",
-              position: "absolute",
-              right: 133,
-              borderRadius: 10,
-              fontFamily: "cursive",
-            }}
+            className={classes.clear_cart_btn}
             onClick={() => dispatch({ type: "STORE_NAME_RESET" })}
           >
             Clear Cart
@@ -260,7 +422,7 @@ const Cart = (props) => {
       </div>
       <br />
 
-      <div className="wid">
+      <div className={classes.wid}>
         {cart.length === 0 && (
           <div>
             <div>
@@ -273,15 +435,7 @@ const Cart = (props) => {
               ></img>
               <br />
             </div>
-            <div
-              className="empty"
-              style={{
-                textAlign: "center",
-                color: "#6439ff",
-                fontWeight: "bold",
-                fontFamily: "cursive",
-              }}
-            >
+            <div className={classes.empty}>
               <p>Cart is Empty</p>
             </div>
           </div>
@@ -289,97 +443,54 @@ const Cart = (props) => {
       </div>
 
       <div className={classes.container}>
-        <div className="contain">
+        <div className={classes.contain}>
           {cart.map((product) => {
             // console.log("CART is :", product);
             return (
-              <div className="my_div">
-                <div className="division">
-                  <div className="shade">
-                    <div
-                      className="card"
-                      key={product.menu_id}
-                      style={{
-                        marginTop: "30px",
-                        borderRadius: "20px",
-                      }}
-                    >
+              <div className={classes.my_div}>
+                <div className={classes.division}>
+                  <div className={classes.shade}>
+                    <div className={classes.card} key={product.menu_id}>
                       <div className={classes.cardview}>
                         <img
                           src={product.menu_image}
                           alt="menu"
-                          style={{
-                            height: "260px",
-                            width: "288px",
-                            borderRadius: "20px 20px 0px 0px",
-                          }}
+                          className={classes.cart_menu_img}
                         />
                         <div>
-                          <p
-                            style={{
-                              marginTop: "0px",
-                              marginBottom: "0px",
-                              fontFamily: "cursive",
-                              textAlign: "left",
-                              padding: "5px",
-                              marginLeft: "7px",
-                            }}
-                          >
-                            <label style={{ width: "100px" }}>Menu Name</label>:
-                            &nbsp;
+                          <p className={classes.cart_para}>
+                            <label className={classes.cart_para_label}>
+                              Menu Name
+                            </label>
+                            : &nbsp;
                             {product.menu_name}
                           </p>
-                          <p
-                            style={{
-                              marginTop: "0px",
-                              marginBottom: "0px",
-                              fontFamily: "cursive",
-                              textAlign: "left",
-                              padding: "5px",
-                              marginLeft: "7px",
-                            }}
-                          >
-                            <label style={{ width: "100px" }}>Price</label>:
-                            &nbsp; Rs. {product.menu_price} /-
+                          <p className={classes.cart_para}>
+                            <label className={classes.cart_para_label}>
+                              Price
+                            </label>
+                            : &nbsp; Rs. {product.menu_price} /-
                           </p>
-                          <p
-                            style={{
-                              marginTop: "0px",
-                              marginBottom: "0px",
-                              fontFamily: "cursive",
-                              textAlign: "left",
-                              padding: "5px",
-                              marginLeft: "7px",
-                            }}
-                          >
-                            <label style={{ width: "100px" }}>Quantity</label>:
-                            &nbsp;
+                          <p className={classes.cart_para}>
+                            <label className={classes.cart_para_label}>
+                              Quantity
+                            </label>
+                            : &nbsp;
                             {product.quantity}
                           </p>
                         </div>
 
-                        <div
-                          style={{
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "space-between",
-                            padding: "6px",
-                            marginBottom: "10px",
-                          }}
-                        >
+                        <div className={classes.remove_div}>
                           <Button
                             onClick={() => {
                               dispatch({ type: "REMOVE", payload: product });
                             }}
-                            style={{ color: "#6439ff", fontFamily: "cursive" }}
+                            className={classes.remove_btn}
                           >
                             Remove
                           </Button>
 
-                          <div
-                            className="button_group"
-                            style={{ borderRadius: 10 }}
-                          >
+                          <div className={classes.button_group}>
                             <ButtonGroup
                               className="me-2"
                               aria-label="Second group"
@@ -391,18 +502,11 @@ const Cart = (props) => {
                                     payload: product,
                                   });
                                 }}
-                                style={{
-                                  backgroundColor: "#6439ff",
-                                  color: "white",
-                                  borderRadius: "10px 0px 0px 10px",
-                                  fontFamily: "cursive",
-                                }}
+                                className={classes.plus_btn}
                               >
                                 +
                               </Button>
-                              <Button
-                                style={{ color: "#6439ff", fontWeight: "bold" }}
-                              >
+                              <Button className={classes.product_qty_btn}>
                                 {product.quantity}
                               </Button>
                               <Button
@@ -419,12 +523,7 @@ const Cart = (props) => {
                                     });
                                   }
                                 }}
-                                style={{
-                                  backgroundColor: "#6439ff",
-                                  color: "white",
-                                  borderRadius: "0px 10px 10px 0px",
-                                  fontFamily: "cursive",
-                                }}
+                                className={classes.minus_btn}
                               >
                                 -
                               </Button>
@@ -443,29 +542,23 @@ const Cart = (props) => {
         {cart && (
           <div className={cart.length !== 0 ? "shadow" : ""}>
             {total > 0 && (
-              <div
-                style={{
-                  fontSize: "20px",
-                  textAlign: "left",
-                  fontFamily: "cursive",
-                }}
-              >
+              <div className={classes.buynow_div}>
                 <label>
-                  <p className="para">Actual product(s) price </p> : Rs.{" "}
+                  <p className={classes.para}>Actual product(s) price </p> : Rs.{" "}
                   {total.toFixed(2)}
                 </label>
                 <br />
                 <label>
-                  <p className="para">Total Tax Amount </p> : Rs.{" "}
+                  <p className={classes.para}>Total Tax Amount </p> : Rs.{" "}
                   {(total * (5 / 100) + total * (7 / 100)).toFixed(2)}
                 </label>
                 <br />
                 <label>
-                  <p className="para">Delivery Fee </p> : Rs. 20.00
+                  <p className={classes.para}>Delivery Fee </p> : Rs. 20.00
                 </label>
                 <br />
                 <label>
-                  <p className="para">Total Price to pay </p> : Rs.{" "}
+                  <p className={classes.para}>Total Price to pay </p> : Rs.{" "}
                   {(
                     total +
                     20 +
@@ -473,15 +566,7 @@ const Cart = (props) => {
                   ).toFixed(2)}
                 </label>
 
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    marginTop: "20px",
-                    fontFamily: "cursive",
-                  }}
-                >
+                <div className={classes.buybtn_div}>
                   <Button
                     variant="contained"
                     aria-label="outlined primary button group"
@@ -489,11 +574,7 @@ const Cart = (props) => {
                       handleShow();
                       submitAlert(total);
                     }}
-                    style={{
-                      backgroundColor: "#6439ff",
-                      borderRadius: "10px",
-                      fontFamily: "cursive",
-                    }}
+                    className={classes.buy_btn}
                   >
                     Buy Now
                   </Button>
@@ -504,45 +585,21 @@ const Cart = (props) => {
         )}
 
         <Modals show={show} handleClose={handleClose}>
-          <div
-            style={{
-              color: "black",
-              textAlign: "center",
-              fontSize: "20px",
-              marginTop: "-40px",
-              fontFamily: "cursive",
-            }}
-          >
+          <div className={classes.buy_modal_div}>
             <br />
             <br />
-            <label style={{ marginLeft: "27px" }}>
+            <label className={classes.orderid_label}>
               <b>Order id </b>: &nbsp;
             </label>
             <input
               id="copy"
-              style={{
-                fontSize: "20px",
-                borderRadius: "10px",
-                borderStyle: "none",
-                width: "60%",
-                textAlign: "center",
-                padding: "5px 10px",
-                fontFamily: "cursive",
-                pointerEvents: "none",
-              }}
+              className={classes.copytext_box}
               value={order_id}
               onChange={(e) => setCopyText(e.target.value)}
             />
             <button
               variant="contained"
-              style={{
-                backgroundColor: "white",
-                fontWeight: "bolder",
-                fontSize: "25px",
-                borderStyle: "none",
-                borderRadius: "10px",
-                fontFamily: "cursive",
-              }}
+              className={classes.copy_icon}
               onClick={handleCopy}
               data-for="tool"
               data-tip="Copied"
@@ -558,18 +615,12 @@ const Cart = (props) => {
             />
             <br />
             <br />
-            <p
-              style={{
-                fontSize: "25px",
-                marginTop: "15px",
-                fontFamily: "cursive",
-              }}
-            >
+            <p className={classes.order_placed_para}>
               <b>
                 <i>Your Order has been placed.</i>
               </b>
             </p>
-            <p style={{ fontSize: "15px", fontFamily: "cursive" }}>
+            <p className={classes.order_placed_para_small}>
               Sit back and relax as your yummy food is on it's way!
             </p>
             <br />

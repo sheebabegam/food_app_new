@@ -13,19 +13,12 @@ function Show_Order_Details(props) {
   return (
     <div className="flex1">
       <div className="main_shadow">
-        <h4
-          className="order_detail"
-          style={{ color: "#6439ff", marginLeft: "35px", paddingTop: "50px" }}
-        >
-          Order Details
-        </h4>
-        <p style={{ textAlign: "left", marginLeft: "80px", marginTop: "30px" }}>
+        <h4 className="order_detail">Order Details</h4>
+        <p className="orderid_p">
           Order Id:{" "}
-          <mark style={{ backgroundColor: "#b7a8f0", borderRadius: "10px" }}>
-            {location.state.id.order_id}
-          </mark>
+          <mark className="orderid_mark">{location.state.id.order_id}</mark>
         </p>
-        <p style={{ textAlign: "left", marginLeft: "80px" }}>
+        <p className="noitems_para">
           {" "}
           No.of Items:
           {menu_length.length}
@@ -39,12 +32,12 @@ function Show_Order_Details(props) {
                 <div className="menu_flex">
                   <label>
                     <p>{items.menu_name}</p>{" "}
-                    <h6 style={{ fontSize: 12, display: "inline-block" }}>
-                      {" "}
-                      &#x2715;
-                    </h6>{" "}
-                    <p> {items.quantity}</p> : Rs.
-                    {items.menu_price * items.quantity}
+                    <h6 className="qty_h6"> &#x2715;</h6>{" "}
+                    <p> {items.quantity}</p>
+                    <p className="item_price">
+                      : Rs.
+                      {items.menu_price * items.quantity}
+                    </p>
                   </label>
                 </div>
               </div>
@@ -54,28 +47,22 @@ function Show_Order_Details(props) {
           <div className="menu_flex">
             <label>
               <p>Item Total</p>{" "}
-              <p style={{ marginLeft: "83px" }}>
-                : Rs.{location.state.id.totalPrice}
-              </p>
+              <p className="price_para">: Rs.{location.state.id.totalPrice}</p>
             </label>{" "}
             <br />
             <label>
-              <p style={{ width: "100px" }}>Delivery Fees</p>{" "}
-              <p style={{ marginLeft: "62px" }}>
-                : Rs.{location.state.id.delivery_fee}
-              </p>
+              <p className="deli_fees_para">Delivery Fees</p>{" "}
+              <p className="del_fee">: Rs.{location.state.id.delivery_fee}</p>
             </label>{" "}
             <br />
             <label>
               <p>GST</p>{" "}
-              <p style={{ marginLeft: "82px" }}>
-                : Rs.{location.state.id.tax[0].taxamount}
-              </p>{" "}
+              <p className="gst_p">: Rs.{location.state.id.tax[0].taxamount}</p>{" "}
             </label>{" "}
             <br />
             <label>
               <p>CGST</p>{" "}
-              <p style={{ marginLeft: "82px" }}>
+              <p className="cgst_p">
                 : Rs.{location.state.id.tax[1].taxamount}
               </p>{" "}
             </label>
@@ -85,10 +72,8 @@ function Show_Order_Details(props) {
 
           <div className="menu_flex">
             <label>
-              <p style={{ width: "100px" }}>Total amount</p>{" "}
-              <p style={{ marginLeft: "62px" }}>
-                : Rs.{location.state.id.clear_amount}
-              </p>{" "}
+              <p className="total_p">Total amount</p>{" "}
+              <p className="amount_p">: Rs.{location.state.id.clear_amount}</p>{" "}
             </label>
           </div>
         </div>

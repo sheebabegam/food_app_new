@@ -33,8 +33,8 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
   },
   rest_name: {
-    fontFamily: "cursive",
-    fontWeight: "bold",
+    fontFamily: Const.fontFamily,
+    fontWeight: Const.fontWeight,
     color: Const.appColor,
   },
 
@@ -47,7 +47,9 @@ const useStyles = makeStyles((theme) => ({
 
     alignItems: "center",
 
-    boxShadow: ".2px .1px 4px 1px rgba(131,153,167,0.6)",
+    boxShadow: "2px 4px 10px 1px rgb(201 201 201 / 47%) !important",
+
+    // boxShadow: ".2px .1px 4px 1px rgba(131,153,150,0.3)",
 
     "&:hover": {
       boxShadow: "0px 0px 6px 5px rgba(131,153,167,0.99)",
@@ -69,9 +71,9 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "13px",
   },
   viewmenu: {
-    fontFamily: "cursive",
-    fontWeight: "bold",
-    color: "#6439ff !important",
+    fontFamily: Const.fontFamily,
+    fontWeight: Const.fontWeight,
+    color: Const.appColor,
     border: "1px solid #6439ff",
     borderRadius: "10px",
     padding: "7px",
@@ -88,25 +90,47 @@ const useStyles = makeStyles((theme) => ({
   fiCardContentTextSecondary: {
     color: "rgba(255,255,255,0.78)",
   },
+  home_img: {
+    height: "780px",
+    width: "700px",
+    marginLeft: "-1220px",
+    marginTop: "-1px",
+  },
+  dish_num: {
+    fontFamily: Const.fontFamily,
+    fontSize: "40px",
+    textTransform: "uppercase",
+    marginLeft: "550px",
+    marginTop: "-723px",
+    fontWeight: Const.fontWeight,
+  },
+  spanMore: {
+    color: Const.appColor,
+  },
+  small_text: {
+    fontFamily: Const.fontFamily,
+    fontSize: "20px",
+    marginLeft: "550px",
+  },
 }));
 
 function Home_New() {
   const classes = useStyles();
   return (
-    <div className="main_home">
-      <div className="side_img">
-        <img src={home_img} alt="Image" className="home_img" />
+    <div className={classes.main_home}>
+      <div className={classes.side_img}>
+        <img src={home_img} alt="Image" className={classes.home_img} />
       </div>
 
       <div>
         <div>
           <br />
           <br />
-          <p className="dish_num">
-            More than <span style={{ color: Const.appColor }}>20,000</span>{" "}
-            dishes to order!{" "}
+          <p className={classes.dish_num}>
+            More than <span className={classes.spanMore}>20,000</span> dishes to
+            order!{" "}
           </p>
-          <p className="small_text">
+          <p className={classes.small_text}>
             Welcome to the biggest network of food order and delivery
           </p>
         </div>

@@ -27,6 +27,7 @@ const useStyles = makeStyles({
     backgroundSize: "cover",
     height: 500,
     maxWidth: "1320px",
+    paddingTop: "100px !important",
   },
 
   box: {
@@ -87,47 +88,109 @@ const useStyles = makeStyles({
     justifyContent: "space-around",
   },
   the: {
-    paddingTop: 25,
-    fontFamily: "cursive",
+    paddingTop: "50px !important",
+    fontFamily: Const.fontFamily,
     color: "white",
-    fontSize: 40,
+    fontSize: "40px !important",
+    // marginTop: "30px !important",
   },
   resta_name: {
-    fontFamily: "cursive",
+    paddingTop: "50px !important",
+    fontFamily: Const.fontFamily,
     color: "white",
-    fontSize: 70,
+    fontSize: "70px !important",
   },
   special_menu: {
-    fontFamily: "cursive",
+    fontFamily: Const.fontFamily,
     textAlign: "start",
     marginLeft: "290px !important",
     fontSize: "35px !important",
-    fontWeight: "bolder",
-    color: "#6439ff",
+    fontWeight: Const.fontWeight,
+    color: Const.appColor,
     marginTop: "15px !important",
   },
   menu_words: {
-    fontFamily: "cursive",
+    fontFamily: Const.fontFamily,
     textAlign: "start",
     marginLeft: "290px !important",
     fontSize: "15px !important",
     color: Const.appColor,
-    marginBottom: 5,
-  },
-  card1: {
-    borderRadius: 20,
-    marginBottom: 40,
+    marginBottom: "15px !important",
   },
   name_menu: {
-    fontFamily: "cursive",
+    fontFamily: Const.fontFamily,
   },
   addcartbtn: {
-    fontWeight: "bold",
-    fontFamily: "cursive",
+    fontWeight: Const.fontWeight,
+    fontFamily: Const.fontFamily,
   },
   rupees: {
-    fontFamily: "cursive",
+    fontFamily: Const.fontFamily,
     fontSize: 16,
+  },
+  map: {
+    marginTop: "50px",
+    marginBottom: "50px",
+    display: "flex",
+    alignItems: "center",
+    width: "69.3%",
+    boxShadow: "2px 4px 10px 1px rgb(201 201 201 / 47%)",
+    marginLeft: "290px",
+    fontSize: "20px",
+    borderRadius: "20px",
+  },
+  address_res: {
+    fontFamily: Const.fontFamily,
+    marginLeft: "150px",
+  },
+  main_div: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: "20px",
+  },
+  card1: {
+    boxShadow: "2px 4px 10px 1px rgb(201 201 201 / 47%)",
+    borderRadius: "20px",
+    marginBottom: "30px",
+  },
+  modalbox: {
+    color: "black",
+    textAlign: "center",
+    fontSize: "20px",
+  },
+  para: {
+    display: "flex",
+    alignItems: "start",
+    justifyContent: "start",
+    fontSize: "20px",
+    marginTop: "15px",
+    textAlign: "left",
+    padding: "0px 20px",
+  },
+  h61: {
+    width: "126px",
+    fontWeight: Const.fontWeight,
+    fontSize: "20px",
+  },
+  h63: {
+    width: "310px",
+    fontWeight: Const.fontWeight,
+    fontSize: "20px",
+  },
+  para1: {
+    textAlign: "justify",
+    fontSize: "20px",
+  },
+  modalAlert: {
+    color: "black",
+    textAlign: "center",
+    fontSize: "20px",
+    marginTop: "-40px",
+  },
+  modalAlert_para: {
+    fontSize: "25px",
+    marginTop: "15px",
   },
 });
 
@@ -142,7 +205,7 @@ export default function Menu_Page(props) {
   var cart = localStorage.getItem("cart", JSON.stringify(cart));
 
   const [arr, setArr] = useState(cart);
-  const [addCart, setAddCart] = useState([]);
+  const [addCart, setAddCart] = useState([cart]);
 
   var userdata = localStorage.getItem("userdata", JSON.stringify(user));
   var user_details = JSON.parse(userdata);
@@ -182,13 +245,13 @@ export default function Menu_Page(props) {
   useEffect(() => {
     var carts = localStorage.getItem("cart", JSON.stringify(cart));
     var cart_details = JSON.parse(carts);
-    console.log(cart_details);
+    console.log("ddddddddddd", cart_details);
     for (var item in cart_details) {
       console.log(cart_details[item].menu_id);
     }
     setArr([...arr]);
     console.log("CARTS", setArr);
-  }, [cart]);
+  }, []);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentuser) => {
@@ -216,6 +279,11 @@ export default function Menu_Page(props) {
   const lat2 = location.state.id.res_address.coordinates2.lat;
   const long2 = location.state.id.res_address.coordinates2.long;
 
+  // var carts = localStorage.getItem("cart", JSON.stringify(cart));
+  // var cart_details = JSON.parse(carts);
+
+  // console.log("CARRRRTTTT", cart_details);
+
   return (
     <div>
       <Container
@@ -230,7 +298,7 @@ export default function Menu_Page(props) {
         </Typography>
       </Container>
 
-      <div className="map">
+      <div className={classes.map}>
         <GoogleMaps
           apiKey={"AIzaSyDw96E-JeiaACLrNOAP_lBdmtlYmV76iis"}
           className="google1"
@@ -247,7 +315,7 @@ export default function Menu_Page(props) {
           ]}
         />
 
-        <div className="address_res">
+        <div className={classes.address_res}>
           <h3>
             <b>Contact Us</b>
           </h3>{" "}
@@ -283,11 +351,11 @@ export default function Menu_Page(props) {
       </Typography>
       <ToastContainer />
 
-      <div className="main_div">
+      <div className={classes.main_div}>
         <div className={classes.container1}>
           {location.state.id.menus.map((product, i) => (
-            <div className="card1" key={product.menu_id}>
-              <div className="margins">
+            <div className={classes.card1} key={product.menu_id}>
+              <div className={classes.margins}>
                 <Card className={classes.cards}>
                   <CardActionArea>
                     <CardMedia
@@ -340,18 +408,18 @@ export default function Menu_Page(props) {
               </div>
 
               <ModalBox show1={show1} handleClose1={handleClose1}>
-                <div className="modalbox">
-                  <p className="para1">
-                    <h6 className="h61">Menu Name</h6>: &nbsp;{" "}
+                <div className={classes.modalbox}>
+                  <p className={classes.para}>
+                    <h6 className={classes.h61}>Menu Name</h6>: &nbsp;{" "}
                     <p>{foodDetails.menu_name}</p>
                   </p>
-                  <p className="para2">
-                    <h6 className="h62">Price</h6> : &nbsp;{" "}
+                  <p className={classes.para}>
+                    <h6 className={classes.h61}>Price</h6> : &nbsp;{" "}
                     <p>Rs. {foodDetails.menu_price}/-</p>
                   </p>
-                  <p className="para3">
-                    <h6 className="h63">Description</h6> : &nbsp;{" "}
-                    <p className="para4">{foodDetails.description}</p>
+                  <p className={classes.para}>
+                    <h6 className={classes.h62}>Description</h6> : &nbsp;{" "}
+                    <p className={classes.para1}>{foodDetails.description}</p>
                   </p>
 
                   <br />
@@ -362,8 +430,8 @@ export default function Menu_Page(props) {
         </div>
 
         <ModalAlert show={show} handleClose={handleClose}>
-          <div className="modalAlert">
-            <p className="modalAlert_para">
+          <div className={classes.modalAlert}>
+            <p className={classes.modalAlert_para}>
               <b>
                 <i>
                   Please{" "}

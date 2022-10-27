@@ -1,5 +1,8 @@
 export const Const = {
-  appColor: "#6439ff",
+  appColor: "#6439ff !important",
+  fontFamily: "cursive !important",
+  fontWeight: "bold !important",
+  whiteColor: "white !important",
 };
 
 export const appShadowdensity = 5;

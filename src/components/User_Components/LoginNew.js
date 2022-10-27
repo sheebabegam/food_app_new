@@ -19,6 +19,7 @@ import { auth } from "../../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import log_new from "../../images/log_new.jpg";
 import log from "../../images/log.png";
+import { Const } from "../../assets/styles/Constants";
 
 const orange = "#F2A74B";
 
@@ -52,42 +53,18 @@ function LoginNew() {
     });
   };
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        backgroundColor: "rgb(255, 245, 238)",
-      }}
-    >
-      <div style={{ marginLeft: "-45px", marginTop: "-100px" }}>
-        <img
-          src={log}
-          alt="log"
-          style={{
-            height: "980px",
-            width: "650px",
-            backgroundColor: "rgb(255, 245, 238)",
-          }}
-        />
+    <div className="login_div">
+      <div className="login_logo_div">
+        <img src={log} alt="log" className="login_logo" />
       </div>
-      <div className="login_new" style={{ marginRight: "62px" }}>
+      <div className="login_new">
         <div>
-          <img
-            src={log_new}
-            alt="Login"
-            style={{
-              height: "550px",
-              width: "600px",
-              borderRadius: "20px",
-              boxShadow: "2px 4px 10px 1px rgb(201 201 201 / 47%)",
-            }}
-          />
+          <img src={log_new} alt="Login" className="login_img" />
         </div>
         <div>
           {/* <Paper elevation={1} square className={classes.paper}> */}
           {/* <Grid container> */}
-          <Grid item xs={10} style={{ width: "400px" }}>
+          <Grid item xs={10} className={classes.grids}>
             <Container
               component="main"
               // maxWidth="s"
@@ -119,10 +96,9 @@ function LoginNew() {
                       label="Email"
                       name="email"
                       sx={{ borderRadius: "10px" }}
-                      // inputProps={{ style: { color: "white" } }}
                       InputLabelProps={{
                         style: {
-                          fontFamily: "cursive",
+                          fontFamily: Const.fontFamily,
                         },
                       }}
                       value={email}
@@ -139,10 +115,9 @@ function LoginNew() {
                       id="password"
                       label="Password"
                       name="password"
-                      // inputProps={{ style: { fontFamily: "cursive" } }}
                       InputLabelProps={{
                         style: {
-                          fontFamily: "cursive",
+                          fontFamily: Const.fontFamily,
                         },
                       }}
                       value={password}
@@ -155,19 +130,15 @@ function LoginNew() {
                       color="primary"
                       className={classes.button}
                       data-toggle="modal"
-                      style={{ fontFamily: "cursive", fontWeight: "bold" }}
                     >
                       Submit
                     </Button>
                     <br />
                     <br />
 
-                    <Typography style={{ fontFamily: "cursive" }}>
+                    <Typography className={classes.signupTypo}>
                       Don't have an account? Please &nbsp;
-                      <Link
-                        to="/register_new"
-                        style={{ color: "#410ff7", fontWeight: "bolder" }}
-                      >
+                      <Link to="/register_new" className={classes.signupLink}>
                         Sign up
                       </Link>
                     </Typography>
@@ -198,7 +169,10 @@ const useStyles = makeStyles((theme) => ({
       alignContent: "flex-start",
     },
   },
-
+  signupLink: {
+    color: "#410ff7",
+    fontWeight: "bolder",
+  },
   header: {
     padding: theme.spacing(5),
     display: "flex",
@@ -213,7 +187,9 @@ const useStyles = makeStyles((theme) => ({
   subtitle: {
     color: theme.palette.primary.contrastText,
   },
-
+  signupTypo: {
+    fontFamily: Const.fontFamily,
+  },
   paper1: {
     position: "relative",
     // marginTop: theme.spacing(2),
@@ -231,12 +207,15 @@ const useStyles = makeStyles((theme) => ({
     // },
     // borderRadius: "10px 0px 0px 10px",
     backgroundColor: "white",
-    marginLeft: "-238px",
-    marginRight: " 95px",
+    marginLeft: "-244px",
+    marginRight: " 221px",
   },
   notchedOutline: {
     borderWidth: "1px",
     borderColor: "white !important",
+  },
+  grids: {
+    width: "400px",
   },
   // grid1: {
   //   marginTop: theme.spacing(25),
@@ -249,7 +228,7 @@ const useStyles = makeStyles((theme) => ({
   register: {
     // color: "white",
     fontWeight: "bold",
-    fontFamily: "cursive",
+    fontFamily: Const.fontFamily,
   },
   register1: {
     color: "white",
@@ -293,8 +272,8 @@ const useStyles = makeStyles((theme) => ({
   button: {
     color: "white",
     position: "relative",
-    fontWeight: 400,
-    fontFamily: "Raleway, sans-serif",
+    fontFamily: Const.fontFamily,
+    fontWeight: "bold",
     overflow: "hidden",
     marginTop: theme.spacing(6),
     padding: `${theme.spacing(1.6)}px`,

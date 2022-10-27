@@ -22,6 +22,9 @@ import side_img from "../../images/side_img.png";
 import special1 from "../../images/special1.png";
 import special2 from "../../images/special2.png";
 import special3 from "../../images/special3.png";
+import { Const } from "../../assets/styles/Constants";
+
+const orange = "#F2A74B";
 
 function Register_New(props) {
   const classes = useStyles();
@@ -85,18 +88,10 @@ function Register_New(props) {
   console.log("Image URLs --->", imageUrls);
   console.log("Upload", imageUpload);
   return (
-    <div style={{ backgroundColor: "#f6f6fdfa" }}>
-      <div className="plate_img" style={{ height: "100%", width: "100%" }}>
+    <div className="register_div">
+      <div className="plate_img">
         <div className="plate_img1">
-          <img
-            src={side_img}
-            alt="plate_image"
-            style={{
-              height: "1090px",
-              width: "520px",
-              objectFit: "fill",
-            }}
-          />
+          <img src={side_img} alt="plate_image" className="sideimg" />
         </div>
 
         <div className="register_div">
@@ -115,60 +110,26 @@ function Register_New(props) {
               </Typography>
 
               <div>
-                <div
-                  style={{
-                    borderRadius: "10px",
-                    width: "600px",
-                    marginTop: "220px",
-                  }}
-                >
-                  <div
-                    style={{
-                      fontSize: "40px",
-                      fontFamily: "cursive",
-                    }}
-                  >
-                    <Typography
-                      style={{
-                        fontSize: "40px",
-                        fontFamily: "cursive",
-                        color: "#6439ff",
-                      }}
-                    >
+                <div className="special_menu_div">
+                  <div className="special_menu_sub_div">
+                    <Typography className="special_typo">
                       Today's special Menu
                     </Typography>
                   </div>
                   <div className="special_menu">
                     <div>
-                      <img
-                        src={special1}
-                        alt="special1"
-                        style={{ height: "150px", width: "160px" }}
-                        className="special"
-                      />
-                      <Typography style={{ fontFamily: "cursive" }}>
-                        Aloo Parata
-                      </Typography>
+                      <img src={special1} alt="special1" className="special" />
+                      <Typography className="menu_typo">Aloo Parata</Typography>
                     </div>
                     <div>
-                      <img
-                        src={special2}
-                        alt="special2"
-                        style={{ height: "150px", width: "160px" }}
-                        className="special"
-                      />
-                      <Typography style={{ fontFamily: "cursive" }}>
+                      <img src={special2} alt="special2" className="special" />
+                      <Typography className="menu_typo">
                         Chicken Biriyani
                       </Typography>
                     </div>
                     <div>
-                      <img
-                        src={special3}
-                        alt="special3"
-                        style={{ height: "150px", width: "160px" }}
-                        className="special"
-                      />
-                      <Typography style={{ fontFamily: "cursive" }}>
+                      <img src={special3} alt="special3" className="special" />
+                      <Typography className="menu_typo">
                         Spicy Noodles
                       </Typography>
                     </div>
@@ -179,19 +140,13 @@ function Register_New(props) {
           </div>
         </div>
 
-        <div
-          style={{
-            marginBottom: "80px",
-            marginLeft: "100px",
-            borderRadius: "20px",
-          }}
-        >
+        <div className="reg_form_div">
           <Grid item xs={10}>
             <Container
               component="main"
               maxWidth="600px"
               className={classes.containers}
-              style={{ borderRadius: "20px" }}
+              style={{}}
             >
               <CssBaseline />
               <div className={classes.paper1}>
@@ -220,14 +175,8 @@ function Register_New(props) {
                         className="round_image"
                       />
 
-                      <div style={{ marginTop: "-45px", marginLeft: "75px" }}>
-                        <label
-                          for="icon_img"
-                          style={{
-                            fontSize: "20px",
-                          }}
-                          className="button"
-                        >
+                      <div className="profile_pic_div">
+                        <label for="icon_img" className="button">
                           <MonochromePhotosIcon />
                         </label>
                         <input
@@ -237,7 +186,7 @@ function Register_New(props) {
                             setImageUpload(e.target.files[0]);
                           }}
                           name="photo"
-                          style={{ display: "none", visibility: "none" }}
+                          className="img_read"
                         />
                       </div>
                     </div>
@@ -250,12 +199,11 @@ function Register_New(props) {
                       type="text"
                       label="First Name"
                       name="firstname"
-                      style={{ fontFamily: "cursive" }}
                       inputProps={{ style: { color: "black" } }}
                       InputLabelProps={{
                         style: {
                           color: "black",
-                          fontFamily: "cursive",
+                          fontFamily: Const.fontFamily,
                         },
                       }}
                       value={firstname}
@@ -271,12 +219,11 @@ function Register_New(props) {
                       type="text"
                       label="Last Name"
                       name="lastname"
-                      style={{ fontFamily: "cursive" }}
                       inputProps={{ style: { color: "black" } }}
                       InputLabelProps={{
                         style: {
                           color: "black",
-                          fontFamily: "cursive",
+                          fontFamily: Const.fontFamily,
                         },
                       }}
                       value={lastname}
@@ -291,12 +238,11 @@ function Register_New(props) {
                       type="text"
                       label="Contact"
                       name="contact"
-                      style={{ fontFamily: "cursive" }}
                       inputProps={{ style: { color: "black" } }}
                       InputLabelProps={{
                         style: {
                           color: "black",
-                          fontFamily: "cursive",
+                          fontFamily: Const.fontFamily,
                         },
                       }}
                       value={contact}
@@ -311,12 +257,11 @@ function Register_New(props) {
                       type="email"
                       label="Email"
                       name="email"
-                      style={{ fontFamily: "cursive" }}
                       inputProps={{ style: { color: "black" } }}
                       InputLabelProps={{
                         style: {
                           color: "black",
-                          fontFamily: "cursive",
+                          fontFamily: Const.fontFamily,
                         },
                       }}
                       value={email}
@@ -331,12 +276,11 @@ function Register_New(props) {
                       type="password"
                       label="Password"
                       name="password"
-                      style={{ fontFamily: "cursive" }}
                       inputProps={{ style: { color: "black" } }}
                       InputLabelProps={{
                         style: {
                           color: "black",
-                          fontFamily: "cursive",
+                          fontFamily: Const.fontFamily,
                         },
                       }}
                       value={password}
@@ -350,25 +294,15 @@ function Register_New(props) {
                       color="primary"
                       className={classes.button}
                       data-toggle="modal"
-                      style={{ fontFamily: "cursive", fontWeight: "bold" }}
                     >
                       Submit
                     </Button>
                     <br />
                     <br />
 
-                    <Typography
-                      style={{ color: "black", fontFamily: "cursive" }}
-                    >
+                    <Typography className={classes.alreadyTypo}>
                       Already have an account. Please{" "}
-                      <Link
-                        to="/login"
-                        style={{
-                          color: "#410ff7",
-                          fontWeight: "bolder",
-                          fontFamily: "cursive",
-                        }}
-                      >
+                      <Link to="/login" className={classes.signinLink}>
                         Sign In
                       </Link>
                     </Typography>
@@ -403,21 +337,30 @@ const ReusableInput = styled(TextField)({
       borderColor: "#9c9a9a",
     },
   },
-  fontFamily: "cursive",
+  fontFamily: Const.fontFamily,
 });
 
 const useStyles = makeStyles((theme) => ({
   grid1: {
     marginTop: theme.spacing(2),
     textShadow: "2.5px 2.5px rgb(201 201 201 / 47%)",
-    fontFamily: "cursive",
+    fontFamily: Const.fontFamily,
+  },
+  signinLink: {
+    color: "#410ff7",
+    fontWeight: "bolder",
+    fontFamily: Const.fontFamily,
   },
   fields: {
-    fontFamily: "cursive",
+    fontFamily: "cursive !important",
   },
   subtitle: {
     color: "black",
-    fontFamily: "cursive",
+    fontFamily: Const.fontFamily,
+  },
+  alreadyTypo: {
+    color: "black",
+    fontFamily: Const.fontFamily,
   },
   avatar: {
     margin: theme.spacing(1),
@@ -425,16 +368,72 @@ const useStyles = makeStyles((theme) => ({
   },
   register: {
     color: "black",
-    fontFamily: "cursive",
+    fontFamily: Const.fontFamily,
     fontWeight: "bolder",
   },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+  containers: {
+    borderRadius: "20px",
   },
   form: {
     width: "100%",
     marginTop: theme.spacing(1),
+  },
+  button: {
+    color: "white",
+    position: "relative",
+    fontFamily: "cursive",
+    fontWeight: "bold",
+    overflow: "hidden",
+    marginTop: theme.spacing(6),
+    padding: `${theme.spacing(1.6)}px`,
+    border: "none",
+    borderRadius: "8px",
+    letterSpacing: "3px",
+
+    "&::before, &::after": {
+      position: "absolute",
+      content: '""',
+      boxSizing: "border-box",
+      borderRadius: "8px",
+      top: 0,
+      bottom: 0,
+      left: 0,
+      right: 0,
+      opacity: 1,
+      color: "white",
+      fontWeight: "bolder",
+    },
+    "&::before": {
+      borderBottom: "2px solid rgba(255,255,255,.58)",
+      borderTop: "2px solid rgba(255,255,255,.58)",
+      transform: "scale(0,1)",
+    },
+    "&::after": {
+      borderLeft: "3px solid rgba(255,255,255,.58)",
+      borderRight: "3px solid rgba(255,255,255,.58)",
+      transform: "scale(1,0)",
+      color: "white",
+      fontWeight: "bolder",
+    },
+    "&:hover::before": {
+      transform: "scale(1,1)",
+      transition: "transform cubic-bezier(0.85,.36,.8,.42) 0.3s",
+    },
+    "&:hover::after": {
+      transform: "scale(1,1)",
+      transition: "transform cubic-bezier(0.85,.36,.8,.42) .2s",
+      color: "white",
+      fontWeight: "bolder",
+    },
+    "&::first-letter": {
+      color: orange,
+    },
+    "&:hover": {
+      background: "rgba(169,198,217,0.8)",
+      // color: textLight,
+      color: "white",
+      fontWeight: "bolder",
+    },
   },
   paper1: {
     position: "relative",

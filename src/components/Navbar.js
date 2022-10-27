@@ -22,7 +22,7 @@ const useStyles = makeStyles({
     height: "80px",
   },
   mainbar: {
-    fontFamily: "cursive",
+    fontFamily: Const.fontFamily,
   },
   box_nav: {
     flexGrow: 1,
@@ -35,14 +35,14 @@ const useStyles = makeStyles({
   },
   foodApp: {
     fontSize: "28px !important",
-    color: "white !important",
+    color: Const.whiteColor,
     display: "block",
-    fontFamily: "cursive",
-    fontWeight: "bolder",
+    fontFamily: Const.fontFamily,
+    fontWeight: Const.fontWeight,
   },
   emailbtn: {
     marginRight: "-300px",
-    fontFamily: "cursive",
+    fontFamily: Const.fontFamily,
   },
   homelink: {
     textDecoration: "none",
@@ -51,11 +51,12 @@ const useStyles = makeStyles({
   homebtn: {
     my: 1,
     fontSize: "20px !important",
-    color: "white !important",
+    color: Const.whiteColor,
     textDecoration: "none",
     display: "block",
     textTransform: "capitalize !important",
-    fontFamily: "cursive",
+
+    fontFamily: Const.fontFamily,
   },
   orderHist_link: {
     textDecoration: "none",
@@ -64,43 +65,45 @@ const useStyles = makeStyles({
   orderHist_btn: {
     my: 1,
     fontSize: "20px !important",
-    color: "white !important",
+    color: Const.whiteColor,
     textDecoration: "none",
     display: "block",
     textTransform: "capitalize !important",
-    fontFamily: "cursive",
+    fontFamily: Const.fontFamily,
   },
   loggedEmail: {
     my: 1,
-    color: "white !important",
+    color: Const.whiteColor,
     textDecoration: "none",
     fontSize: "20px !important",
     backgroundColor: Const.appColor,
     textTransform: "lowercase !important",
-    fontFamily: "cursive",
+    fontFamily: Const.fontFamily,
   },
   cartButton: {
     // my: 1,
     fontSize: "20px !important",
-    color: "white !important",
+    color: Const.whiteColor,
     display: "block",
     // minWidth: "0px",
     // padding: "0px",
   },
   cartIcon: {
     fontSize: "30px !important",
-    color: "white !important",
+    color: Const.whiteColor,
   },
   logoutbtn: {
     my: 2,
     fontSize: "25px !important",
-    color: "white !important",
+    color: Const.whiteColor,
     display: "block",
     textTransform: "capitalize",
+    marginTop: "auto !important",
+    marginBottom: "4px !important",
   },
   logoutIcon: {
     fontSize: "30px !important",
-    color: "white !important",
+    color: Const.whiteColor,
     // marginTop: "10px !important",
   },
   box2: {
@@ -113,23 +116,26 @@ const useStyles = makeStyles({
   box2Btn: {
     my: 2,
     fontSize: "20px !important",
-    color: "white !important",
+    color: Const.whiteColor,
     display: "block",
-    textTransform: "capitalize",
+    textTransform: "capitalize !important",
+    fontFamily: Const.fontFamily,
   },
   signup_btn: {
     my: 2,
     fontSize: "20px !important",
-    color: "white !important",
+    color: Const.whiteColor,
     display: "block",
-    textTransform: "capitalize",
+    textTransform: "capitalize !important",
+    fontFamily: Const.fontFamily,
   },
   signin_btn: {
     my: 2,
     fontSize: "20px !important",
-    color: "white !important",
+    color: Const.whiteColor,
     display: "block",
-    textTransform: "capitalize",
+    textTransform: "capitalize !important",
+    fontFamily: Const.fontFamily,
   },
   emailNav: {
     width: 700,
@@ -137,17 +143,34 @@ const useStyles = makeStyles({
     justifyContent: "space-around",
     alignItems: "baseline",
   },
-  // cart_items: {
-  //   fontSize: "0.5em",
-  //   color: "white",
-  //   backgroundColor: "red",
-  //   padding: "4px 6px",
-  //   borderRadius: "50%",
-  //   marginTop: "-20px",
-  //   transform: "translate(100px, -300px)",
-  //   verticalAlign: "top",
-  //   fontFamily: "cursive",
-  // },
+  container_nav: {
+    backgroundColor: Const.appColor,
+    position: "sticky",
+  },
+  header_nav: {
+    position: "sticky",
+    top: 0,
+    background: Const.appColor,
+  },
+  img_nav: {
+    height: "50px",
+    width: "50px",
+    marginRight: "20px",
+  },
+  round_image1: {
+    height: "50px",
+    width: "50px",
+    borderRadius: "50%",
+  },
+  cart: {
+    fontSize: "13px",
+    backgroundColor: "red",
+    width: "20px",
+    borderRadius: "50%",
+    marginTop: "-20px",
+    textAlign: "center",
+    padding: "0px",
+  },
 });
 
 const pages = ["Register", "Login"];
@@ -233,21 +256,12 @@ const Navbar = () => {
   console.log("user -->", user);
 
   return (
-    <AppBar position="static" className="mainbar">
-      <header
-        className="header_nav"
-        style={{
-          background: Const.appColor,
-        }}
-      >
-        <Container
-          maxWidth="xxl"
-          className="container_nav"
-          sx={{ backgroundColor: Const.appColor }}
-        >
+    <AppBar position="static" className={classes.mainbar}>
+      <header className={classes.header_nav}>
+        <Container maxWidth="xxl" className={classes.container_nav}>
           <Toolbar disableGutters>
             <Box className={classes.box_nav}>
-              <img src={logo_delivery} alt="Logo" className="img_nav" />
+              <img src={logo_delivery} alt="Logo" className={classes.img_nav} />
 
               <Button className={classes.foodApp}>FOOD DELIVERY APP</Button>
             </Box>
@@ -274,7 +288,7 @@ const Navbar = () => {
                           <img
                             src={item.photo}
                             alt="Profile picture"
-                            className="round_image1"
+                            className={classes.round_image1}
                           />
                         </div>
                       ) : null
@@ -286,7 +300,9 @@ const Navbar = () => {
                         iconStyle={useStyles.largeIcon}
                         className={classes.cartIcon}
                       ></ShoppingCartCheckoutIcon>
-                      <span className="cart">{cart && cart.length}</span>
+                      <span className={classes.cart}>
+                        {cart && cart.length}
+                      </span>
                       {/* <span className="cart_items">{cart && cart.length}</span> */}
                     </Button>
                   </Link>

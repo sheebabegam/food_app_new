@@ -5,8 +5,71 @@ import Fetch_Data from "../../Fetch_Data";
 import no_items from "../../images/no_items.jpg";
 import { Typography } from "@mui/material";
 import Fetch_Order from "../../Fetch_Order";
+import makeStyles from "@material-ui/core/styles/makeStyles";
+import { Const } from "../../assets/styles/Constants";
+
+const useStyles = makeStyles({
+  noitems_div: {
+    marginTop: "100px",
+  },
+  no_items_img: {
+    height: "300px",
+    width: "300px",
+  },
+  no_items_para: {
+    fontFamily: Const.fontFamily,
+    fontSize: "35px",
+    color: Const.appColor,
+    fontWeight: Const.fontWeight,
+    marginTop: "30px",
+  },
+  orderhist_div: {
+    boxShadow: "2px 4px 10px 1px rgb(201 201 201 / 47%)",
+    margin: "50px 83px",
+    width: "90%",
+    padding: "60px",
+  },
+  orderhist_h1: {
+    color: Const.appColor,
+    textAlign: "left",
+    marginLeft: "35px",
+    fontWeight: Const.fontWeight,
+  },
+  table_div: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  theads: {
+    padding: "10px 30px",
+  },
+  trs: {
+    color: Const.appColor,
+    padding: "10px 30px",
+    fontSize: "20px",
+  },
+  table_row: {
+    boxShadow: "2px 4px 10px 1px rgb(201 201 201 / 47%)",
+    backgroundColor: Const.whiteColor,
+    padding: "20px 0px !important",
+    marginBottom: "10px !important",
+  },
+  view_button: {
+    backgroundColor: Const.whiteColor,
+    fontFamily: Const.fontFamily,
+    cursor: "pointer",
+    color: Const.appColor,
+    borderColor: Const.appColor,
+    padding: "8px 20px",
+  },
+  tr: {
+    padding: "10px !important",
+    marginBottom: "10px",
+  },
+});
 
 function Order_History() {
+  const classes = useStyles();
   const [users, setUsers] = useState([]);
   const [allOrderItem, setAllOrderItem] = useState([]);
   useEffect(() => {
@@ -50,21 +113,13 @@ function Order_History() {
   return (
     <div>
       {found === undefined && (
-        <div style={{ marginTop: "100px" }}>
+        <div className={classes.noitems_div}>
           <img
             src={no_items}
             alt="No Items Found"
-            style={{ height: "300px", width: "300px" }}
+            className={classes.no_items_img}
           />
-          <Typography
-            style={{
-              fontFamily: "cursive",
-              fontSize: "35px",
-              color: "#6439ff",
-              fontWeight: "bold",
-              marginTop: "30px",
-            }}
-          >
+          <Typography className={classes.no_items_para}>
             No items found
           </Typography>
         </div>
@@ -72,31 +127,10 @@ function Order_History() {
 
       {found !== undefined && (
         <>
-          <div
-            style={{
-              boxShadow: "2px 4px 10px 1px rgb(201 201 201 / 47%)",
-              marginLeft: "83px",
-              width: "90%",
-              padding: "60px",
-            }}
-          >
-            <h1
-              style={{
-                color: "#6439ff",
-                textAlign: "left",
-                marginLeft: "35px",
-              }}
-            >
-              Order History
-            </h1>
+          <div className={classes.orderhist_div}>
+            <h1 className={classes.orderhist_h1}>Order History</h1>
 
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
+            <div className={classes.table_div}>
               <table
                 style={{
                   borderCollapse: "separate",
@@ -105,8 +139,8 @@ function Order_History() {
                 }}
                 className="fixed-height fixed-width fixed-cell table-spacing"
               >
-                <thead style={{ padding: "10px 30px" }}>
-                  <tr style={{ color: "#6439ff", padding: "10px 30px" }}>
+                <thead className={classes.theads}>
+                  <tr className={classes.trs}>
                     <th>Order ID</th>
                     <th>Date</th>
                     <th>Time</th>
@@ -124,14 +158,7 @@ function Order_History() {
                               contact_details
                             ) {
                               return (
-                                <tr
-                                  key={i}
-                                  style={{
-                                    backgroundColor: "white",
-                                    padding: "20px 0px",
-                                  }}
-                                  className="table_row"
-                                >
+                                <tr key={i} className={classes.table_row}>
                                   <td>{order?.order_id}</td>
                                   <td>{order?.date}</td>
                                   <td>{order?.time}</td>
@@ -140,7 +167,7 @@ function Order_History() {
                                       to={{ pathname: "/order_details" }}
                                       state={{ id: order }}
                                     >
-                                      <button className="view_button">
+                                      <button className={classes.view_button}>
                                         <b>View order</b>
                                       </button>
                                     </Link>
