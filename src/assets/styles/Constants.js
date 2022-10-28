@@ -3,6 +3,7 @@ export const Const = {
   fontFamily: "cursive !important",
   fontWeight: "bold !important",
   whiteColor: "white !important",
+  borderRadius20: "20px !important",
 };
 
 export const appShadowdensity = 5;

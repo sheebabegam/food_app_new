@@ -9,7 +9,7 @@ import Modals from "../Modal/Modals.js";
 import ReactTooltip from "react-tooltip";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import { collection, addDoc } from "firebase/firestore";
-import "../style.css";
+// import "../style.css";
 import { db } from "../../firebase";
 import { Const } from "../../assets/styles/Constants";
 
@@ -34,7 +34,7 @@ const useStyles = makeStyles({
 
   card: {
     marginTop: "30px",
-    borderRadius: "20px",
+    borderRadius: Const.borderRadius20,
   },
 
   media: {
@@ -150,6 +150,8 @@ const useStyles = makeStyles({
     padding: "15px",
     marginRight: "458px",
     marginTop: "40px",
+    height: "730px",
+    overflow: "scroll",
   },
   wid: {
     width: "100%",
@@ -164,7 +166,7 @@ const useStyles = makeStyles({
   },
   shade: {
     boxShadow: "2px 4px 10px 1px rgb(201 201 201 / 47%)",
-    borderRadius: "20px",
+    borderRadius: Const.borderRadius20,
   },
   cart_menu_img: {
     height: "260px",
@@ -181,6 +183,7 @@ const useStyles = makeStyles({
   },
   cart_para_label: {
     width: "100%",
+    display: "unset",
   },
   buynow_div: {
     fontSize: "20px",
@@ -211,7 +214,7 @@ const useStyles = makeStyles({
   copytext_box: {
     fontSize: "20px",
     borderRadius: "10px",
-    // borderRadius: "none",
+    border: "none",
     width: "60%",
     textAlign: "center",
     padding: "5px 10px",

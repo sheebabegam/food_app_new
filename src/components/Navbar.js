@@ -8,7 +8,7 @@ import ShoppingCartCheckoutIcon from "@mui/icons-material/ShoppingCartCheckout";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
-import "./style.css";
+// import "./style.css";
 import { auth } from "../firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import Fetch_Data from "../Fetch_Data";
@@ -120,6 +120,7 @@ const useStyles = makeStyles({
     display: "block",
     textTransform: "capitalize !important",
     fontFamily: Const.fontFamily,
+    textDecoration: "none !important",
   },
   signup_btn: {
     my: 2,
@@ -128,6 +129,7 @@ const useStyles = makeStyles({
     display: "block",
     textTransform: "capitalize !important",
     fontFamily: Const.fontFamily,
+    textDecoration: "none !important",
   },
   signin_btn: {
     my: 2,
@@ -170,6 +172,9 @@ const useStyles = makeStyles({
     marginTop: "-20px",
     textAlign: "center",
     padding: "0px",
+  },
+  linkLine: {
+    textDecoration: "none !important",
   },
 });
 
@@ -216,7 +221,7 @@ const Navbar = () => {
       localStorage.setItem("firstname", JSON.stringify([]));
       localStorage.setItem("order_details", JSON.stringify([]));
       localStorage.setItem("restaurant_data", JSON.stringify([]));
-
+      localStorage.setItem("cart", JSON.stringify([]));
       navigate("/");
       setTimeout(function () {
         window.location.reload();
@@ -316,19 +321,19 @@ const Navbar = () => {
 
             <Box className={classes.box2}>
               {email.length === 0 && (
-                <Link to="/">
+                <Link to="/" className={classes.linkLine}>
                   <Button className={classes.box2Btn}>Home</Button>
                 </Link>
               )}
 
               {email.length === 0 && (
-                <Link to="/register_new">
+                <Link to="/register_new" className={classes.linkLine}>
                   <Button className={classes.signup_btn}>Sign up</Button>
                 </Link>
               )}
 
               {email.length === 0 && (
-                <Link to="/login">
+                <Link to="/login" className={classes.linkLine}>
                   <Button
                     className={classes.signin_btn}
                     onClick={() => {

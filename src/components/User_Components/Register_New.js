@@ -8,7 +8,7 @@ import Container from "@material-ui/core/Container";
 import { useNavigate, Link } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import "../style.css";
+// import "../style.css";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { collection, addDoc } from "firebase/firestore";
 import { auth, storage } from "../../firebase";
@@ -88,14 +88,14 @@ function Register_New(props) {
   console.log("Image URLs --->", imageUrls);
   console.log("Upload", imageUpload);
   return (
-    <div className="register_div">
-      <div className="plate_img">
-        <div className="plate_img1">
-          <img src={side_img} alt="plate_image" className="sideimg" />
+    <div className={classes.register_div}>
+      <div className={classes.plate_img}>
+        <div className={classes.plate_img1}>
+          <img src={side_img} alt="plate_image" className={classes.sideimg} />
         </div>
 
-        <div className="register_div">
-          <div className="register_text">
+        <div className={classes.register_div}>
+          <div className={classes.register_text}>
             <div>
               <Typography variant="h2" className={classes.grid1}>
                 Don't have an account?
@@ -110,26 +110,40 @@ function Register_New(props) {
               </Typography>
 
               <div>
-                <div className="special_menu_div">
-                  <div className="special_menu_sub_div">
-                    <Typography className="special_typo">
+                <div className={classes.special_menu_div}>
+                  <div className={classes.special_menu_sub_div}>
+                    <Typography className={classes.special_typo}>
                       Today's special Menu
                     </Typography>
                   </div>
-                  <div className="special_menu">
+                  <div className={classes.special_menu}>
                     <div>
-                      <img src={special1} alt="special1" className="special" />
-                      <Typography className="menu_typo">Aloo Parata</Typography>
+                      <img
+                        src={special1}
+                        alt="special1"
+                        className={classes.special}
+                      />
+                      <Typography className={classes.menu_typo}>
+                        Aloo Parata
+                      </Typography>
                     </div>
                     <div>
-                      <img src={special2} alt="special2" className="special" />
-                      <Typography className="menu_typo">
+                      <img
+                        src={special2}
+                        alt="special2"
+                        className={classes.special}
+                      />
+                      <Typography className={classes.menu_typo}>
                         Chicken Biriyani
                       </Typography>
                     </div>
                     <div>
-                      <img src={special3} alt="special3" className="special" />
-                      <Typography className="menu_typo">
+                      <img
+                        src={special3}
+                        alt="special3"
+                        className={classes.special}
+                      />
+                      <Typography className={classes.menu_typo}>
                         Spicy Noodles
                       </Typography>
                     </div>
@@ -140,7 +154,7 @@ function Register_New(props) {
           </div>
         </div>
 
-        <div className="reg_form_div">
+        <div className={classes.reg_form_div}>
           <Grid item xs={10}>
             <Container
               component="main"
@@ -163,7 +177,7 @@ function Register_New(props) {
 
                 <div className={classes.paper}>
                   <form className={classes.form} onSubmit={saveChange}>
-                    <div className="loaded_img_sec">
+                    <div className={classes.loaded_img_sec}>
                       <img
                         name="photo"
                         src={
@@ -172,11 +186,11 @@ function Register_New(props) {
                             : user_icon
                         }
                         alt={imageUpload ? imageUpload.name : null}
-                        className="round_image"
+                        className={classes.round_image}
                       />
 
-                      <div className="profile_pic_div">
-                        <label for="icon_img" className="button">
+                      <div className={classes.profile_pic_div}>
+                        <label for="icon_img" className={classes.button1}>
                           <MonochromePhotosIcon />
                         </label>
                         <input
@@ -186,7 +200,7 @@ function Register_New(props) {
                             setImageUpload(e.target.files[0]);
                           }}
                           name="photo"
-                          className="img_read"
+                          className={classes.img_read}
                         />
                       </div>
                     </div>
@@ -199,11 +213,14 @@ function Register_New(props) {
                       type="text"
                       label="First Name"
                       name="firstname"
-                      inputProps={{ style: { color: "black" } }}
+                      inputProps={{
+                        style: { color: "black" },
+                      }}
                       InputLabelProps={{
                         style: {
                           color: "black",
-                          fontFamily: Const.fontFamily,
+                          fontFamily: "cursive",
+                          // fontFamily: Const.fontFamily,
                         },
                       }}
                       value={firstname}
@@ -223,7 +240,8 @@ function Register_New(props) {
                       InputLabelProps={{
                         style: {
                           color: "black",
-                          fontFamily: Const.fontFamily,
+                          // fontFamily: Const.fontFamily,
+                          fontFamily: "cursive",
                         },
                       }}
                       value={lastname}
@@ -242,7 +260,8 @@ function Register_New(props) {
                       InputLabelProps={{
                         style: {
                           color: "black",
-                          fontFamily: Const.fontFamily,
+                          // fontFamily: Const.fontFamily,
+                          fontFamily: "cursive",
                         },
                       }}
                       value={contact}
@@ -261,7 +280,8 @@ function Register_New(props) {
                       InputLabelProps={{
                         style: {
                           color: "black",
-                          fontFamily: Const.fontFamily,
+                          // fontFamily: Const.fontFamily,
+                          fontFamily: "cursive",
                         },
                       }}
                       value={email}
@@ -280,7 +300,8 @@ function Register_New(props) {
                       InputLabelProps={{
                         style: {
                           color: "black",
-                          fontFamily: Const.fontFamily,
+                          // fontFamily: Const.fontFamily,
+                          fontFamily: "cursive",
                         },
                       }}
                       value={password}
@@ -346,13 +367,93 @@ const useStyles = makeStyles((theme) => ({
     textShadow: "2.5px 2.5px rgb(201 201 201 / 47%)",
     fontFamily: Const.fontFamily,
   },
+  register_div: {
+    backgroundColor: "#f6f6fdfa",
+  },
+  menu_typo: {
+    fontFamily: Const.fontFamily,
+    color: Const.appColor,
+  },
+  reg_form_div: {
+    marginBottom: "80px",
+    marginLeft: "100px",
+    borderRadius: Const.borderRadius20,
+  },
+  register_text: {
+    margin: "-800px 0px",
+    marginLeft: "100px",
+  },
+  special_menu_div: {
+    borderRadius: "10px",
+    width: "600px",
+    marginTop: "220px",
+  },
+  img_read: {
+    display: "none",
+    visibility: "none",
+  },
+  special: {
+    height: "100px",
+    width: "150px",
+    borderRadius: "50%",
+    height: "150px",
+    width: "160px",
+  },
+  special_menu_sub_div: {
+    fontSize: "40px",
+    fontFamily: Const.fontFamily,
+  },
+  special_typo: {
+    fontSize: "40px !important",
+    fontFamily: Const.fontFamily,
+    color: Const.appColor,
+  },
+  special_menu: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    height: "100px",
+    width: "100%",
+    marginTop: "100px",
+  },
+  plate_img: {
+    display: "flex",
+    alignItems: "flex-end",
+    justifyContent: "flex-start",
+    marginTop: "-218px",
+    height: "100%",
+    width: "100%",
+  },
+  loaded_img_sec: {
+    width: "100px",
+    height: "100px",
+    margin: "auto",
+  },
+  round_image: {
+    height: "100%",
+    width: "100%",
+    borderRadius: "50%",
+    objectFit: "cover",
+  },
+  profile_pic_div: {
+    marginTop: "-45px",
+    marginLeft: "75px",
+  },
+  plate_img1: {
+    display: "inline",
+  },
+  sideimg: {
+    height: "1090px",
+    width: "520px",
+    objectFit: "fill",
+  },
   signinLink: {
     color: "#410ff7",
-    fontWeight: "bolder",
+    fontWeight: Const.fontWeight,
     fontFamily: Const.fontFamily,
   },
   fields: {
-    fontFamily: "cursive !important",
+    fontFamily: Const.fontFamily,
   },
   subtitle: {
     color: "black",
@@ -369,20 +470,20 @@ const useStyles = makeStyles((theme) => ({
   register: {
     color: "black",
     fontFamily: Const.fontFamily,
-    fontWeight: "bolder",
+    fontWeight: Const.fontWeight,
   },
   containers: {
-    borderRadius: "20px",
+    borderRadius: Const.borderRadius20,
   },
   form: {
     width: "100%",
     marginTop: theme.spacing(1),
   },
   button: {
-    color: "white",
+    color: Const.whiteColor,
     position: "relative",
-    fontFamily: "cursive",
-    fontWeight: "bold",
+    fontFamily: Const.fontFamily,
+    fontWeight: Const.fontWeight,
     overflow: "hidden",
     marginTop: theme.spacing(6),
     padding: `${theme.spacing(1.6)}px`,
@@ -400,8 +501,8 @@ const useStyles = makeStyles((theme) => ({
       left: 0,
       right: 0,
       opacity: 1,
-      color: "white",
-      fontWeight: "bolder",
+      color: Const.whiteColor,
+      fontWeight: Const.fontWeight,
     },
     "&::before": {
       borderBottom: "2px solid rgba(255,255,255,.58)",
@@ -412,8 +513,8 @@ const useStyles = makeStyles((theme) => ({
       borderLeft: "3px solid rgba(255,255,255,.58)",
       borderRight: "3px solid rgba(255,255,255,.58)",
       transform: "scale(1,0)",
-      color: "white",
-      fontWeight: "bolder",
+      color: Const.whiteColor,
+      fontWeight: Const.fontWeight,
     },
     "&:hover::before": {
       transform: "scale(1,1)",
@@ -422,8 +523,8 @@ const useStyles = makeStyles((theme) => ({
     "&:hover::after": {
       transform: "scale(1,1)",
       transition: "transform cubic-bezier(0.85,.36,.8,.42) .2s",
-      color: "white",
-      fontWeight: "bolder",
+      color: Const.whiteColor,
+      fontWeight: Const.fontWeight,
     },
     "&::first-letter": {
       color: orange,
@@ -431,8 +532,8 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       background: "rgba(169,198,217,0.8)",
       // color: textLight,
-      color: "white",
-      fontWeight: "bolder",
+      color: Const.whiteColor,
+      fontWeight: Const.fontWeight,
     },
   },
   paper1: {
@@ -440,11 +541,32 @@ const useStyles = makeStyles((theme) => ({
     padding: `${theme.spacing(2)}px ${theme.spacing(1)}px`,
     display: "flex",
     flexDirection: "column",
-    borderRadius: "20px",
+    borderRadius: Const.borderRadius20,
     alignItems: "center",
     boxShadow: ".2px .1px 4px 1px rgba(131,153,167,0.6)",
     "&:hover": {
       boxShadow: "0px 0px 6px 5px rgba(131,153,167,0.99)",
+    },
+  },
+  button1: {
+    border: "0px",
+    padding: "14px 3px !important",
+    fontSize: "4rem",
+    fontFamily: "monospace",
+    boxShadow: "0px 5px 10px rgba(darken(dodgerblue, 40%))",
+    transition: "all 0.25s",
+    cursor: "pointer",
+    borderRadius: "5px",
+    borderBottom: "4px solid lighten(gray, 70%) !important",
+    fontSize: "20px",
+
+    "&:hover": {
+      boxShadow: "0px 15px 25px -5px rgba(darken(dodgerblue, 40%))",
+      transform: "scale(1.03)",
+    },
+
+    "&:active": {
+      transform: "scale(0.98)",
     },
   },
 }));

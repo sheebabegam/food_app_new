@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import "../style.css";
+// import "../style.css";
 import Fetch_Data from "../../Fetch_Data";
 import no_items from "../../images/no_items.jpg";
 import { Typography } from "@mui/material";
@@ -34,6 +34,7 @@ const useStyles = makeStyles({
     textAlign: "left",
     marginLeft: "35px",
     fontWeight: Const.fontWeight,
+    fontFamily: Const.fontFamily,
   },
   table_div: {
     display: "flex",
@@ -42,17 +43,20 @@ const useStyles = makeStyles({
   },
   theads: {
     padding: "10px 30px",
+    fontFamily: Const.fontFamily,
   },
   trs: {
     color: Const.appColor,
     padding: "10px 30px",
     fontSize: "20px",
+    fontFamily: Const.fontFamily,
   },
   table_row: {
     boxShadow: "2px 4px 10px 1px rgb(201 201 201 / 47%)",
     backgroundColor: Const.whiteColor,
     padding: "20px 0px !important",
     marginBottom: "10px !important",
+    fontFamily: Const.fontFamily,
   },
   view_button: {
     backgroundColor: Const.whiteColor,
@@ -62,9 +66,12 @@ const useStyles = makeStyles({
     borderColor: Const.appColor,
     padding: "8px 20px",
   },
-  tr: {
+  // tr: {
+  //   padding: "10px !important",
+  //   marginBottom: "10px",
+  // },
+  tds: {
     padding: "10px !important",
-    marginBottom: "10px",
   },
 });
 
@@ -159,10 +166,12 @@ function Order_History() {
                             ) {
                               return (
                                 <tr key={i} className={classes.table_row}>
-                                  <td>{order?.order_id}</td>
-                                  <td>{order?.date}</td>
-                                  <td>{order?.time}</td>
-                                  <td>
+                                  <td className={classes.tds}>
+                                    {order?.order_id}
+                                  </td>
+                                  <td className={classes.tds}>{order?.date}</td>
+                                  <td className={classes.tds}>{order?.time}</td>
+                                  <td className={classes.tds}>
                                     <Link
                                       to={{ pathname: "/order_details" }}
                                       state={{ id: order }}

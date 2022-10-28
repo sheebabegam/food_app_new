@@ -11,21 +11,6 @@
   } */
 
 .modal-main {
-  position: absolute;
-  background: white;
-  top: 50%;
-  left: 50%;
-  top: 0;
-  width: 33%;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-  height: 390px;
-  border-radius: 20px;
-  /* border: 1px solid whitesmoke; */
-  /* border-color: black; */
-  box-shadow: 2px 4px 10px 1px rgb(201 201 201 / 47%);
 }
 
 .modal-main button {
@@ -43,7 +28,6 @@
 }
 
 .modal_header {
-  display: flex;
   /* justify-content: space-between; */
   /* align-items: baseline; */
 }
@@ -55,8 +39,6 @@
 }
 
 .xbutton {
-  margin-left: 232px;
-  margin-top: -25px;
 }
 
 .line1 {

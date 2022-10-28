@@ -14,7 +14,7 @@ import { useLocation } from "react-router-dom";
 import ModalAlert from "../Modal/ModalAlert";
 import ModalBox from "../Modal/ModalBox";
 import GoogleMaps from "simple-react-google-maps";
-import "../style.css";
+// import "../style.css";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../firebase";
 import { ToastContainer, toast } from "react-toastify";
@@ -123,6 +123,7 @@ const useStyles = makeStyles({
   addcartbtn: {
     fontWeight: Const.fontWeight,
     fontFamily: Const.fontFamily,
+    color: Const.appColor,
   },
   rupees: {
     fontFamily: Const.fontFamily,
@@ -137,7 +138,7 @@ const useStyles = makeStyles({
     boxShadow: "2px 4px 10px 1px rgb(201 201 201 / 47%)",
     marginLeft: "290px",
     fontSize: "20px",
-    borderRadius: "20px",
+    borderRadius: Const.borderRadius20,
   },
   address_res: {
     fontFamily: Const.fontFamily,
@@ -147,11 +148,11 @@ const useStyles = makeStyles({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: "20px",
+    borderRadius: Const.borderRadius20,
   },
   card1: {
     boxShadow: "2px 4px 10px 1px rgb(201 201 201 / 47%)",
-    borderRadius: "20px",
+    borderRadius: Const.borderRadius20,
     marginBottom: "30px",
   },
   modalbox: {
@@ -181,6 +182,7 @@ const useStyles = makeStyles({
   para1: {
     textAlign: "justify",
     fontSize: "20px",
+    marginLeft: "20px",
   },
   modalAlert: {
     color: "black",
@@ -191,6 +193,9 @@ const useStyles = makeStyles({
   modalAlert_para: {
     fontSize: "25px",
     marginTop: "15px",
+  },
+  webLinkColor: {
+    color: Const.appColor,
   },
 });
 
@@ -336,6 +341,7 @@ export default function Menu_Page(props) {
               href={location.state.id.res_web}
               target="_blank"
               rel="noopener noreferrer"
+              className={classes.webLinkColor}
             >
               {" "}
               {location.state.id.res_website}
@@ -418,8 +424,11 @@ export default function Menu_Page(props) {
                     <p>Rs. {foodDetails.menu_price}/-</p>
                   </p>
                   <p className={classes.para}>
-                    <h6 className={classes.h62}>Description</h6> : &nbsp;{" "}
-                    <p className={classes.para1}>{foodDetails.description}</p>
+                    <h6 className={classes.h61}>Description</h6>
+                    <p className={classes.para1}>
+                      {" "}
+                      : {foodDetails.description}
+                    </p>
                   </p>
 
                   <br />

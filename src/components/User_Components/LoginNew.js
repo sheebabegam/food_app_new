@@ -53,21 +53,18 @@ function LoginNew() {
     });
   };
   return (
-    <div className="login_div">
-      <div className="login_logo_div">
-        <img src={log} alt="log" className="login_logo" />
+    <div className={classes.login_div}>
+      <div className={classes.login_logo_div}>
+        <img src={log} alt="log" className={classes.login_logo} />
       </div>
-      <div className="login_new">
+      <div className={classes.login_new}>
         <div>
-          <img src={log_new} alt="Login" className="login_img" />
+          <img src={log_new} alt="Login" className={classes.login_img} />
         </div>
         <div>
-          {/* <Paper elevation={1} square className={classes.paper}> */}
-          {/* <Grid container> */}
           <Grid item xs={10} className={classes.grids}>
             <Container
               component="main"
-              // maxWidth="s"
               justify="flex-end"
               className={classes.containers}
             >
@@ -98,7 +95,8 @@ function LoginNew() {
                       sx={{ borderRadius: "10px" }}
                       InputLabelProps={{
                         style: {
-                          fontFamily: Const.fontFamily,
+                          // fontFamily: Const.fontFamily,
+                          fontFamily: "cursive",
                         },
                       }}
                       value={email}
@@ -117,7 +115,8 @@ function LoginNew() {
                       name="password"
                       InputLabelProps={{
                         style: {
-                          fontFamily: Const.fontFamily,
+                          // fontFamily: Const.fontFamily,
+                          fontFamily: "cursive",
                         },
                       }}
                       value={password}
@@ -147,8 +146,6 @@ function LoginNew() {
               </div>
             </Container>
           </Grid>
-          {/* </Grid> */}
-          {/* </Paper> */}
         </div>
       </div>
     </div>
@@ -161,7 +158,6 @@ const useStyles = makeStyles((theme) => ({
   paperContainer: {
     height: 844,
     justifyContent: "flex-start",
-    // backgroundImage: `url(${final_log})`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     alignContent: "stretch",
@@ -169,9 +165,39 @@ const useStyles = makeStyles((theme) => ({
       alignContent: "flex-start",
     },
   },
+  login_div: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    backgroundColor: "rgb(255, 245, 238)",
+  },
+  login_logo_div: {
+    marginLeft: "-45px",
+    marginTop: "-100px",
+  },
+  login_logo: {
+    height: "980px",
+    width: "650px",
+    backgroundColor: "rgb(255, 245, 238)",
+  },
+  login_new: {
+    width: "auto",
+    height: "870px",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgb(255, 245, 238)",
+    marginRight: "-107px",
+  },
+  login_img: {
+    height: "550px",
+    width: "600px",
+    borderRadius: Const.borderRadius20,
+    boxShadow: "2px 4px 10px 1px rgb(201 201 201 / 47%)",
+  },
   signupLink: {
     color: "#410ff7",
-    fontWeight: "bolder",
+    fontWeight: Const.fontWeight,
   },
   header: {
     padding: theme.spacing(5),
@@ -192,51 +218,39 @@ const useStyles = makeStyles((theme) => ({
   },
   paper1: {
     position: "relative",
-    // marginTop: theme.spacing(2),
-    // padding: `${theme.spacing(2)}px ${theme.spacing(1)}px`,
     display: "flex",
     flexDirection: "column",
-    borderRadius: "20px",
+    borderRadius: Const.borderRadius20,
     alignItems: "center",
     boxShadow: "2px 4px 10px 1px rgb(201 201 201 / 47%)",
-
-    // boxShadow: ".2px .1px 4px 1px rgba(131,153,167,0.6)",
-
-    // "&:hover": {
-    //   boxShadow: "0px 0px 6px 5px rgba(255,255,255,0.99)",
-    // },
-    // borderRadius: "10px 0px 0px 10px",
-    backgroundColor: "white",
+    backgroundColor: Const.whiteColor,
     marginLeft: "-244px",
     marginRight: " 221px",
   },
   notchedOutline: {
     borderWidth: "1px",
-    borderColor: "white !important",
+    borderColor: Const.whiteColor,
   },
   grids: {
     width: "400px",
   },
-  // grid1: {
-  //   marginTop: theme.spacing(25),
-  // },
+
   colors: {
     color: "#d5cece",
     textAlign: "center",
-    borderColor: "white",
+    borderColor: Const.whiteColor,
   },
   register: {
-    // color: "white",
-    fontWeight: "bold",
+    fontWeight: Const.fontWeight,
     fontFamily: Const.fontFamily,
   },
   register1: {
-    color: "white",
+    color: Const.whiteColor,
   },
   fields: {
     borderRadius: 10,
     ".MuiInputLabel-outlined": {
-      color: "white",
+      color: Const.whiteColor,
     },
   },
   paper: {
@@ -250,30 +264,16 @@ const useStyles = makeStyles((theme) => ({
   },
   form: {
     width: "100%",
-    // marginTop: theme.spacing(1),
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
-  // main: {
-  //   // marginTop: theme.spacing(8),
-  //   marginBottom: theme.spacing(4),
-  //   marginRight: theme.spacing(3),
-  //   marginLeft: theme.spacing(3),
-  //   display: "block",
-  //   width: "auto",
-  //   [theme.breakpoints.up(1000 + theme.spacing(3))]: {
-  //     width: 1000,
-  //     marginLeft: "auto",
-  //     marginRight: "auto",
-  //   },
-  // },
 
   button: {
-    color: "white",
+    color: Const.whiteColor,
     position: "relative",
     fontFamily: Const.fontFamily,
-    fontWeight: "bold",
+    fontWeight: Const.fontWeight,
     overflow: "hidden",
     marginTop: theme.spacing(6),
     padding: `${theme.spacing(1.6)}px`,
@@ -291,8 +291,8 @@ const useStyles = makeStyles((theme) => ({
       left: 0,
       right: 0,
       opacity: 1,
-      color: "white",
-      fontWeight: "bolder",
+      color: Const.whiteColor,
+      fontWeight: Const.fontWeight,
     },
     "&::before": {
       borderBottom: "2px solid rgba(255,255,255,.58)",
@@ -303,8 +303,8 @@ const useStyles = makeStyles((theme) => ({
       borderLeft: "3px solid rgba(255,255,255,.58)",
       borderRight: "3px solid rgba(255,255,255,.58)",
       transform: "scale(1,0)",
-      color: "white",
-      fontWeight: "bolder",
+      color: Const.whiteColor,
+      fontWeight: Const.fontWeight,
     },
     "&:hover::before": {
       transform: "scale(1,1)",
@@ -313,17 +313,16 @@ const useStyles = makeStyles((theme) => ({
     "&:hover::after": {
       transform: "scale(1,1)",
       transition: "transform cubic-bezier(0.85,.36,.8,.42) .2s",
-      color: "white",
-      fontWeight: "bolder",
+      color: Const.whiteColor,
+      fontWeight: Const.fontWeight,
     },
     "&::first-letter": {
       color: orange,
     },
     "&:hover": {
       background: "rgba(169,198,217,0.8)",
-      // color: textLight,
-      color: "white",
-      fontWeight: "bolder",
+      color: Const.whiteColor,
+      fontWeight: Const.fontWeight,
     },
   },
 }));

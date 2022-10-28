@@ -1,6 +1,6 @@
 import React from "react";
 import home_img from "../../images/home_img.png";
-import "../style.css";
+// import "../style.css";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -112,6 +112,9 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "20px",
     marginLeft: "550px",
   },
+  linkLine: {
+    textDecoration: "none !important",
+  },
 }));
 
 function Home_New() {
@@ -163,7 +166,11 @@ function Home_New() {
                       </CardContent>
                     </CardActionArea>
                     <CardActions className={classes.action}>
-                      <Link to={{ pathname: "/menu" }} state={{ id: product }}>
+                      <Link
+                        to={{ pathname: "/menu" }}
+                        state={{ id: product }}
+                        className={classes.linkLine}
+                      >
                         <Button
                           size="small"
                           color="primary"
